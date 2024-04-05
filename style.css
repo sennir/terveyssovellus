@@ -58,13 +58,6 @@
     border-radius: 15px;
   }
   
-/* Media query pienemmille näytöille, jotka ovat alle 450 pikseliä leveitä */
-@media (max-width: 450px) {
-    .navigation-bar {
-      min-width: 400px; /* Navigointipalkin minimileveys */
-    }
-  }
-  
   /* Media query suuremmille näytöille, jotka ovat yli 450 pikseliä leveitä */
   @media (min-width: 450px) {
     .navigation-bar {
