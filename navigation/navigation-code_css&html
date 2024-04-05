@@ -1,0 +1,76 @@
+
+/* navigointi barin css koodi: */
+
+.navigation-bar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 60px;
+    margin: 0 auto;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #ffffff; /* Match with your form background color */
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5);
+    z-index: 100;
+    border-radius: 15px;
+  }
+  
+  /* Media query suuremmille näytöille, jotka ovat yli 450 pikseliä leveitä */
+  @media (min-width: 450px) {
+    .navigation-bar {
+      width: 100%; /* Navigointipalkki venyy täyttämään saatavilla olevan tilan */
+    }
+  }
+
+  .nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: rgb(30, 30, 30);
+  }
+  
+  .nav-item img {
+    width: 24px; /* You can adjust the size as needed */
+    height: auto;
+    margin-bottom: 5px;
+  }
+  
+  .nav-item span {
+    font-size: 0.75em; /* You can adjust the size as needed */
+    text-align: center;
+  }
+  
+  /* Add this to prevent the content from being hidden behind the navigation bar */
+  body {
+    padding-bottom: 70px; /* Height of the navigation bar plus some extra space */
+  }
+
+
+
+ /* html koodi nav barista:
+
+  <!-- Navigation Bar -->
+<div class="navigation-bar">
+    <a href="/" class="nav-item" id="home">
+      <img src="logo-home.png" alt="Etusivu">
+      <span>Etusivu</span>
+    </a>
+    <a href="/historia" class="nav-item" id="history">
+      <img src="magnifying-glass.png" alt="Historia">
+      <span>Historia</span>
+    </a>
+    <a href="/paivakirja" class="nav-item" id="journal">
+      <img src="book-icon.png" alt="Päiväkirja">
+      <span>Päiväkirja</span>
+    </a>
+    <a href="/profiili" class="nav-item" id="profile">
+      <img src="user.png" alt="Profiili">
+      <span>Profiili</span>
+    </a> 
+  </div>  
+  
+  */
