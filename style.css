@@ -25,9 +25,6 @@
     font-size: 3.2em;
     line-height: 1.1;
   }
-  h3 {
-    margin-top: 50px;
-  }
   
   body {
     min-width: 320px;
@@ -43,6 +40,63 @@
     background-position: center;
   }
   
+  /* Navigation Bar Styles */
+.navigation-bar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 60px;
+    margin: 0 auto;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #ffffff; /* Match with your form background color */
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5);
+    z-index: 100;
+    border-radius: 15px;
+  }
+  
+/* Media query pienemmille näytöille, jotka ovat alle 450 pikseliä leveitä */
+@media (max-width: 450px) {
+    .navigation-bar {
+      min-width: 400px; /* Navigointipalkin minimileveys */
+    }
+  }
+  
+  /* Media query suuremmille näytöille, jotka ovat yli 450 pikseliä leveitä */
+  @media (min-width: 450px) {
+    .navigation-bar {
+      width: 100%; /* Navigointipalkki venyy täyttämään saatavilla olevan tilan */
+    }
+  }
+
+  .nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: rgb(30, 30, 30);
+  }
+  
+  .nav-item img {
+    width: 24px; /* You can adjust the size as needed */
+    height: auto;
+    margin-bottom: 5px;
+  }
+  
+  .nav-item span {
+    font-size: 0.75em; /* You can adjust the size as needed */
+    text-align: center;
+  }
+  
+  /* Add this to prevent the content from being hidden behind the navigation bar */
+  body {
+    padding-bottom: 70px; /* Height of the navigation bar plus some extra space */
+  }
+  
+
   #app {
     max-width: 1280px;
     margin: 0 auto;
@@ -59,6 +113,11 @@
     width: 450px;
     opacity: 0.95;
     text-align: center;
+  }
+
+  h3 {
+    margin-top: 50px;
+    font-size: 23px;
   }
   
   /* pienten nappien tyylit */
@@ -85,6 +144,21 @@
     flex-direction: column;
   }
   
+  form {
+    background-color: #132016;
+    color: #ffffff;
+    padding: 30px;
+    margin: auto; /* Tämä keskittää lomakkeen vaakasuunnassa */
+    margin-top: 25px;
+    margin-bottom: 25px;
+    font-weight: bold;
+    width: 400px;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    opacity: 0.95;
+}
   
   form#diaryForm {
     margin: 0 auto;
@@ -92,6 +166,20 @@
     padding: 30px;
   }
   
+  .infoText {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    color: black;
+    border-radius: 5px;
+    padding: 10px;
+    z-index: 1;
+}
+
+.info:hover + .infoText, .infoText:hover {
+    display: block;
+}
+
   /* päiväkirjan tekstiosion muotoilu */
   #content {
     display: flex;
@@ -137,19 +225,6 @@
       .button.del {
         background-color: #f2a29448;
       }
-  
-  
-  
-  #video-bg {
-    position: fixed;
-    right: 0;
-    bottom: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1; 
-    background-position: center;
-    object-fit: cover;
-  }
   
   
   /* navigaatiolistan tyylittely */

@@ -35,8 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
       return; 
     }
 
-    // const url = 'http://127.0.0.1:3000/api/auth/login';
-    const url = 'https://srprojekti.northeurope.cloudapp.azure.com/api/auth/login';
+    const url = 'http://127.0.0.1:3000/api/auth/login';
     const form = document.querySelector('.login_form');
 
     const data = {
