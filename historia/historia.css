@@ -1,0 +1,42 @@
+.historia-menu {
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Add align-items property */
+    flex-direction: column; /* Change flex-direction to column */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #ffffff; /* Set same background color as navigation bar */
+    border-radius: 15px;
+    padding: 20px; /* Add padding for better spacing */
+}
+
+.historia-menu ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.historia-menu li {
+    margin-bottom: 10px;
+}
+
+.historia-menu a {
+    display: inline-block;
+    padding: 15px 0; /* Adjust padding to make buttons bigger */
+    width: 250px; /* Set explicit width for all buttons */
+    background-color: #4CAF50;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px; /* Adjust border radius for larger buttons */
+    text-align: center; /* Center text horizontally */
+}
+
+.historia-menu a:hover {
+    background-color: #45a049;
+}
+
+
+
+
