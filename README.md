@@ -1,3 +1,3 @@
 # Terveyssovellus
 
-# Test push
+![App Screenshot](kuvat/historia-menu.png)
