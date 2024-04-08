@@ -8,29 +8,51 @@
 </head>
 <body>
 
+  <!--Kaksi ensimmäistä felxboxia, ensimmäisessä on käyttäjän tervehteminen ja toisessa nappula uuden päiväkirjamerkinnän luontiin-->
 <div class="flexcontainer">
-    <img class="info-icon" src="info-icon.jpg" alt="info-icon">
     <div class="flexbox1">
         <h1>Hei Käyttäjä!</h1>
     </div>
-
-
     <div class="flexbox2">
-        <h2 class="paivakirja-button">Tee uusi päiväkirjamerkintä!</h2>
+        <button class="paivakirja-button">Tee uusi päiväkirjamerkintä!</button>
     </div>
 
+    <!--Kolmas flexbox laatikko, jossa Valmius tulokset ja elämänohje-->
+
     <div class="valmius">
-        <h4>Valmius</h4>
-        <h1>80</h1>
+        <!-- <img id="info" class="info-icon" src="info-icon.jpg" alt="info-icon"> -->
+        <button onclick="showInfo()">Show Info</button>
+        <h2>Valmius</h2>
+        <h1 id="sliderValue">50</h1> <!-- Initially set to default value -->
         <div class="scale" id="scale">
             <div class="indicator" id="indicator"></div>
         </div>
         <input type="range" min="0" max="100" value="50" id="slider" onchange="updateScale()">
-        <h5>Hyvä</h5>
-        <h4>Vielä yksi palautumispäivä</h4>
-        <h5>Kehosi lämpötila on yhä koholla. Toivottavasti voit jo pian paremmin, mutta toistaiseksi kannattaa keskittyä lepoon.</h5>
+        <h5 id="readiness"></h5>
+        <h3 id="lifeotsikko" style="text-align: center;" ></h3>
+        <h4 id="lifeaid" style="text-align: center;"></h4>
     </div>
 </div>
+
+
+<!--Info nappulan tuottama teksti, tietoa HRV:stä -->
+
+<div id="infoWindow" class="info-window">
+  <div class="info-content">
+      <h2>Information</h2>
+      <p>
+          <strong>Huono:</strong> HRV-pistemäärä on alle 30. Tämä viittaa sykevälien vähäiseen vaihteluun, mikä saattaa viitata korkeisiin stressitasoihin, heikkoon unen laatuun tai muihin autonomisen hermoston tasapainoon vaikuttaviin tekijöihin.<br><br>
+  
+          <strong>Kohtalainen:</strong> HRV-pistemäärä on välillä 30 ja 49. Tämä viittaa kohtalaiseen sykevälivaihteluun. Vaikka tilanne ei ole optimaalinen, se osoittaa jonkin verran tasapainoa autonomisessa hermostossa.<br><br>
+          
+          <strong>Hyvä:</strong> HRV-pistemäärä on välillä 50 ja 74. Tämä viittaa hyvään sykevälivaihteluun, mikä heijastaa tasapainoista autonomista hermostoa. Se viittaa terveelliseen stressivasteeseen, hyvään unen laatuun ja kokonaisvaltaiseen hyvinvointiin.<br><br>
+          
+          <strong>Erinomainen:</strong> HRV-pistemäärä on 75 tai enemmän. Tämä merkitsee erinomaista sykevälivaihtelua, mikä viittaa poikkeuksellisen tasapainoiseen autonomiseen hermostoon. Se viittaa vahvaan stressinsietokykyyn, erinomaiseen unen laatuun ja kokonaisvaltaiseen optimaaliseen terveyteen.
+      </p>
+      <button onclick="closeInfoWindow()">Sulje</button>
+  </div>
+</div>
+
 
 
 
