@@ -1,15 +1,15 @@
 .historia-menu {
     display: flex;
     justify-content: center;
-    align-items: center; /* Add align-items property */
-    flex-direction: column; /* Change flex-direction to column */
+    align-items: center;
+    flex-direction: column;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: #ffffff; /* Set same background color as navigation bar */
+    background-color: #ffffff;
     border-radius: 15px;
-    padding: 20px; /* Add padding for better spacing */
+    padding: 20px;
 }
 
 .historia-menu ul {
@@ -19,24 +19,35 @@
 }
 
 .historia-menu li {
-    margin-bottom: 10px;
+    margin-bottom: 25px;
 }
 
 .historia-menu a {
     display: inline-block;
-    padding: 15px 0; /* Adjust padding to make buttons bigger */
-    width: 250px; /* Set explicit width for all buttons */
+    padding: 20px; /* Increase padding for larger buttons */
+    width: 80%; /* Use a percentage width for responsiveness */
+    max-width: 300px; /* Limit maximum width for larger screens */
     background-color: #4CAF50;
     color: white;
     text-decoration: none;
-    border-radius: 8px; /* Adjust border radius for larger buttons */
-    text-align: center; /* Center text horizontally */
+    border-radius: 25px;
+    text-align: center;
+    font-size: 20px; /* Increase font size for larger screens */
+    font-weight: bold;
+    box-shadow: 0 6px 6px rgba(0, 0, 0, 0.4); /* Add small shadow effect */
+    transition: box-shadow 0.3s ease; /* Add transition for smooth effect */
 }
 
 .historia-menu a:hover {
     background-color: #45a049;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); /* Adjust shadow on hover */
 }
 
-
-
-
+/* Media query for larger screens */
+@media screen and (min-width: 768px) {
+    .historia-menu a {
+        width: 100%; 
+        max-width: 500px; /* Increase maximum width for larger screens */
+        font-size: 24px; /* Further increase font size for larger screens */
+    }
+}
