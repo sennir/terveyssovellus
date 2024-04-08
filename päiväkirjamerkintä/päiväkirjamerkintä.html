@@ -81,20 +81,21 @@
 
     <div id="diaryform">
         <form>
-          <h3>Uusi päiväkirjamerkintä</h3>
+          <h3 class="päiväkirjamerkintä">Uusi päiväkirjamerkintä</h3>
           <label for="entryDate">Päivämäärä:</label><br>
           <input type="date" id="entryDate" name="entry_date" required><br><br>
           
-          <!-- Mieliala -->
-          <label for="mood">Mieliala:</label><br>
-          <select name="mood" required>
-            <option value="" disabled selected>Valitse mieliala</option>
-            <option value="Mahtava">Mahtava</option>
-            <option value="Hyvä">Hyvä</option>
-            <option value="Neutraali">Neutraali</option>
-            <option value="Huono">Huono</option>
-            <option value="Kamala">Kamala</option>
-          </select><br><br>
+        <!-- Mieliala -->
+        <label for="mood">Mieliala:</label><br>
+        <div class="mood-options">
+            <span class="mood-option" data-value="😄">😄 </span>
+            <span class="mood-option" data-value="😊">😊 </span>
+            <span class="mood-option" data-value="😐">😐 </span>
+            <span class="mood-option" data-value="😢">😢 </span>
+            <span class="mood-option" data-value="😞">😞 </span>
+        </div>
+        <input type="hidden" name="mood" id="selectedMood">
+
           
           <!-- Uni -->
           <label for="sleep_hours">Unen määrä (h):</label><br>
