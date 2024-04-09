@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<!-- saved from url=(0038)http://127.0.0.1:5500/omat_tiedot.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    
+     
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Omat tiedot</title>
+  <!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+<link rel="icon" type="image/svg+xml" href="http://127.0.0.1:5500/vite.svg"><link rel="stylesheet" type="text/css" href="./Omat tiedot_files/omat_tiedot.css"></head>
+
+  <body class="sivu">
+
+    <div class="tiedot">
+        <h2>Omat tiedot</h2>
+        <h3>Paino:</h3>
+        <h3>Pituus:</h3>
+        <h3>Syntymäaika:</h3>
+        <h3>Sukupuoli: Mies/Nainen</h3>
+        <h3>Liikunta taso:</h3>
+        <h3>Unen taso:</h3>
+        <h3>Stressi taso:</h3>
+        <h3>Koulu:</h3>
+        </div>
+    
+
+
+
+<!-- Navigation Bar -->
+<div class="navigation-bar">
+  <a href="http://127.0.0.1:5500/home" class="nav-item" id="home">
+    <img src="./Omat tiedot_files/logo-home.png" alt="Etusivu">
+    <span>Etusivu</span>
+  </a>
+  <a href="http://127.0.0.1:5500/historia" class="nav-item" id="history">
+    <img src="./Omat tiedot_files/magnifying-glass.png" alt="Historia">
+    <span>Historia</span>
+  </a>
+  <a href="http://127.0.0.1:5500/paivakirja" class="nav-item" id="journal">
+    <img src="./Omat tiedot_files/book-icon.png" alt="Päiväkirja">
+    <span>Päiväkirja</span>
+  </a>
+  <a href="http://127.0.0.1:5500/profiili" class="nav-item" id="profile">
+    <img src="./Omat tiedot_files/user.png" alt="Profiili">
+    <span>Profiili</span>
+  </a> 
+</div>  
+</body></html>
