@@ -22,13 +22,16 @@
     <div class="valmius">
         <!-- <img id="info" class="info-icon" src="info-icon.jpg" alt="info-icon"> -->
         <button onclick="showInfo()">Show Info</button>
-        <h2>Valmius</h2>
-        <h1 id="sliderValue">50</h1> <!-- Initially set to default value -->
-        <div class="scale" id="scale">
-            <div class="indicator" id="indicator"></div>
+        <h2 class="otsikko">Valmius</h2>
+        <div class="valmiusslider">
+          <h1 id="sliderValue">50</h1> <!-- Initially set to default value -->
+          <div class="scale" id="scale">
+              <div class="indicator" id="indicator"></div>
+          </div>
+        
+          <input type="range" min="0" max="100" value="50" id="slider" onchange="updateScale()">
+          <h5 id="readiness"></h5>
         </div>
-        <input type="range" min="0" max="100" value="50" id="slider" onchange="updateScale()">
-        <h5 id="readiness"></h5>
         <h3 id="lifeotsikko" style="text-align: center;" ></h3>
         <h4 id="lifeaid" style="text-align: center;"></h4>
     </div>

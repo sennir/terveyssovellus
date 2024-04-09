@@ -49,12 +49,37 @@ body{
     border-radius: 15px;
     padding-bottom: 10px;
     margin-bottom: 10px;
+    
+}
+
+.otsikko{
+  background-color: white;
+  border-radius: 10px;
+  padding: 5px;
+}
+
+.valmiusslider{
+  background-color: white;
+  text-align: center;
+  padding: 5px;
+  border-radius: 10px;
+  
+}
+
+#lifeotsikko{
+  background-color: white;
+  text-align: center;
+  padding: 5px;
+  border-radius: 10px;
+  max-width: 400px;
 }
 
 #lifeaid{
   background-color: white;
   padding: 5px;
   border-radius: 10px;
+  margin: 0;
+  max-width: 400px;
 }
 
 .flexinfo{
@@ -63,11 +88,12 @@ body{
 }
 /* rediness palkki*/
 .scale {
-    width: 200px;
+    width: 300px;
     height: 20px;
     position: relative;
     border: 1px solid #000;
     overflow: hidden;
+    
 }
 
 .indicator {
@@ -155,3 +181,4 @@ body{
   body {
     padding-bottom: 70px; /* Height of the navigation bar plus some extra space */
   }
+

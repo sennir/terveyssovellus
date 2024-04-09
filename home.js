@@ -1,14 +1,14 @@
 ///Valmius mittarin coodi, vielä tällähetkellä mocki datalla mutta koitan yhdistää sen cubioksen arvoihin.
 
 function updateScale() {
-    var slider = document.getElementById("slider");
-    var value = parseInt(slider.value);
+    const slider = document.getElementById("slider");
+    const value = parseInt(slider.value);
     console.log(value);
-    var indicator = document.getElementById("indicator");
-    var sliderValue = document.getElementById("sliderValue");
-    var readiness = document.getElementById("readiness"); // Assuming there's an element with id "readiness" to display readiness level
-    var lifeaid = document.getElementById("lifeaid");
-    var lifeotsikko = document.getElementById("lifeotsikko");
+    const indicator = document.getElementById("indicator");
+    const sliderValue = document.getElementById("sliderValue");
+    const readiness = document.getElementById("readiness"); // Assuming there's an element with id "readiness" to display readiness level
+    const lifeaid = document.getElementById("lifeaid");
+    const lifeotsikko = document.getElementById("lifeotsikko");
 
     sliderValue.textContent = value; // Update the content of <h1> tag
     indicator.style.width = value + "%";
@@ -39,14 +39,14 @@ function updateScale() {
 ///avaa ikkunen
 
 function showInfo() {
-    var infoWindow = document.getElementById("infoWindow");
+    const infoWindow = document.getElementById("infoWindow");
     infoWindow.style.display = "block";
 }
 
 ///sulkee ikkunan
 
 function closeInfoWindow() {
-    var infoWindow = document.getElementById("infoWindow");
+    const infoWindow = document.getElementById("infoWindow");
     infoWindow.style.display = "none";
 }
 
