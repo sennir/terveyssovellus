@@ -1,3 +1,5 @@
+import { fetchData } from './fetch.js';
+
 ///Valmius mittarin coodi, vielä tällähetkellä mocki datalla mutta koitan yhdistää sen cubioksen arvoihin.
 
 function updateScale() {
@@ -50,4 +52,36 @@ function closeInfoWindow() {
     infoWindow.style.display = "none";
 }
 
+/// Update readiness to latest
 
+async function updateReadiness(evt) {
+    // Get the ID using the data attribute
+    const id = localStorage.getItem('userID');
+    console.log('Getting individual entries for ID:', id);
+    
+    const url = `http://127.0.0.1:3000/api/readiness`;
+    const token = localStorage.getItem('token');
+    console.log(token);
+    
+    const options = {
+      method: 'GET',
+      headers: {
+        Authorization: 'Bearer ' + token, // Removed colon after 'Bearer'
+      },
+    };
+
+    try {
+        console.log(options, url);
+        const data = await fetchData(url, options);
+        console.log(data);
+        
+        
+        
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      } 
+}
+
+updateReadiness()
+
+export {updateScale, closeInfoWindow, showInfo}
