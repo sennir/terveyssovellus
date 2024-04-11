@@ -1,7 +1,7 @@
+// Importing fetchData function from fetch.js module
 import { fetchData } from './fetch.js';
 
-///Valmius mittarin coodi, vielä tällähetkellä mocki datalla mutta koitan yhdistää sen cubioksen arvoihin.
-
+// Function to update the scale based on slider value
 function updateScale() {
     const slider = document.getElementById("slider");
     const value = parseInt(slider.value);
@@ -28,7 +28,6 @@ function updateScale() {
         readiness.textContent = "Hyvä";
         lifeotsikko.textContent = "Nauti päivästä ja jatka terveellisten tapojen ylläpitämistä.";
         lifeaid.textContent = "Hyvä HRV-vaihtelu viittaa tasapainoiseen autonomiseen hermostoon ja terveeseen stressivasteeseen. Jatka terveellisten elämäntapojen ylläpitämistä, kuten säännöllistä liikuntaa ja stressinhallintaa, pitääksesi tämän tason HRV:n.";
-
     } else {
         readiness.textContent = "Erinomainen";
         lifeotsikko.textContent = "Voit hyvin! Jatka terveellisten elämäntapojen ylläpitämistä ja nauti energisestä päivästä.";
@@ -36,26 +35,20 @@ function updateScale() {
     }
 }
 
-/// Funktio Info nappulalle, sylkee ulos infotekstiä hrv:stä
-
-///avaa ikkunen
-
+// Function to show information window
 function showInfo() {
     const infoWindow = document.getElementById("infoWindow");
     infoWindow.style.display = "block";
 }
 
-///sulkee ikkunan
-
+// Function to close information window
 function closeInfoWindow() {
     const infoWindow = document.getElementById("infoWindow");
     infoWindow.style.display = "none";
 }
 
-/// Update readiness to latest
-
-async function updateReadiness(evt) {
-    // Get the ID using the data attribute
+// Function to update readiness asynchronously
+async function updateReadiness() {
     const id = localStorage.getItem('userID');
     console.log('Getting individual entries for ID:', id);
     
@@ -66,7 +59,7 @@ async function updateReadiness(evt) {
     const options = {
       method: 'GET',
       headers: {
-        Authorization: 'Bearer ' + token, // Removed colon after 'Bearer'
+        Authorization: 'Bearer ' + token,
       },
     };
 
@@ -75,13 +68,20 @@ async function updateReadiness(evt) {
         const data = await fetchData(url, options);
         console.log(data);
         
-        
-        
-      } catch (error) {
+        // Assuming data is an object with a property 'readiness'
+        const readinessValue = data.readiness;
+        const sliderValueElement = document.getElementById('sliderValue');
+        sliderValueElement.textContent = readinessValue; // Update the content of the <h1> element
+    } catch (error) {
         console.error('Error fetching data:', error);
-      } 
+    } 
 }
+
 
 updateReadiness()
 
-export {updateScale, closeInfoWindow, showInfo}
+// Attach event listener to call updateScale when input value changes
+document.getElementById("slider").addEventListener("change", updateScale);
+
+// Exporting functions to make them accessible from outside
+export { updateScale, showInfo, closeInfoWindow, updateReadiness };
