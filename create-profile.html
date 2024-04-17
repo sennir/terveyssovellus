@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="stylesheet" type="text/css" href="style.css"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Main</title>
+  </head>
+
+  <body class="start-frontpage common-styles">
+
+    <div class="center">
+    <div class="profile">
+        <h3>Profiilin luonti</h3>
+        </div>
+    </div>
+
+    <form id="profileForm">
+        <label for="name">Nimi: </label>
+        <input type="text" id="name" name="name" maxlength="30" required><br><br>
+
+        <label for="birthday">Syntymäpäivä: </label>
+        <input type="date" id="birthday" name="birthday" required><br><br>
+
+        <label for="phonenumber">Puhelinnumero: </label>
+        <input type="tel" id="phonenumber" name="phonenumber" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required><br><br>
+
+        <label for="gender">Sukupuoli: </label>
+        <select id="gender" name="gender">
+            <option value="mies">Mies</option>
+            <option value="nainen">Nainen</option>
+        </select><br><br>
+
+        <label for="height">Pituus (cm): </label>
+        <input type="number" id="height" name="height" min="0" step="1"><br><br>
+
+        <label for="exerciseFrequency">Liikunnan määrä viikossa: </label>
+        <select id="exerciseFrequency" name="exerciseFrequency">
+            <option value="0-1">0-1 kertaa viikossa</option>
+            <option value="2-3">2-3 kertaa viikossa</option>
+            <option value="4-6">4-6 kertaa viikossa</option>
+            <option value="7+">7+ kertaa viikossa</option>
+        </select>
+        <span class="info" id="exerciseFrequencyInfo">*</span>
+<div class="infoText" id="exerciseFrequencyInfoText">Vähintään 30 minuuttia kerrallaan, syke kohonneena</div>
+<br><br>
+
+        <label for="sleepQuality">Unen taso (oma arvio): </label>
+        <select id="sleepQuality" name="sleepQuality">
+            <option value="huono">Huono</option>
+            <option value="ihan ok">Keskinkertainen</option>
+            <option value="hyvä">Hyvä</option>
+            <option value="extrahyvä">Erittäin hyvä</option>
+        </select><br><br>
+
+        <label for="stressLevel">Stressin taso (oma arvio): </label>
+        <select id="stressLevel" name="stressLevel">
+            <option value="matala">Matala</option>
+            <option value="keskinkertainen">Keskinkertainen</option>
+            <option value="korkea">Korkea</option>
+            <option value="extrakorkea">Erittäin korkea</option>
+        </select><br><br>
+        <label for="institution">Oppilaitos: </label>
+        <select id="institution" name="institution">
+            <option value="aalto">Aalto-yliopisto</option>
+            <option value="abo">Åbo Akademi</option>
+            <option value="haaga-helia">Haaga-Helia ammattikorkeakoulu</option>
+            <option value="hanken">Hanken Svenska handelshögskolan</option>
+            <option value="hamk">Hämeen ammattikorkeakoulu (HAMK)</option>
+            <option value="jamk">Jyväskylän ammattikorkeakoulu (JAMK)</option>
+            <option value="jyu">Jyväskylän yliopisto</option>
+            <option value="kamk">Kajaanin ammattikorkeakoulu (KAMK)</option>
+            <option value="ku">Karelia-ammattikorkeakoulu</option>
+            <option value="karelia">Itä-Suomen yliopisto</option>
+            <option value="lab">Lahden ammattikorkeakoulu (LAB)</option>
+            <option value="lapin-amk">Lapin ammattikorkeakoulu (Lapin AMK)</option>
+            <option value="lut">Lappeenrannan-Lahden teknillinen yliopisto (LUT)</option>
+            <option value="lut">Lappeenrannan teknillinen yliopisto (LUT)</option>
+            <option value="metropolia">Metropolia Ammattikorkeakoulu</option>
+            <option value="novia">Novia-ammattikorkeakoulu</option>
+            <option value="oulu">Oulun yliopisto</option>
+            <option value="pohjois-karjalan-kesayliopisto">Pohjois-Karjalan kesäyliopisto</option>
+            <option value="saimaa">Saimaan ammattikorkeakoulu (Saimia)</option>
+            <option value="savonia">Savonia-ammattikorkeakoulu</option>
+            <option value="tamk">Tampereen ammattikorkeakoulu (TAMK)</option>
+            <option value="tuni">Tampereen korkeakouluyhteisö</option>
+            <option value="taideyliopisto">Taideyliopisto</option>
+            <option value="turku-amk">Turun ammattikorkeakoulu (Turku AMK)</option>
+            <option value="turun-yliopisto">Turun yliopisto</option>
+            <option value="ulapland">Lapin yliopisto</option>
+            <option value="vaasa">Vaasan yliopisto</option>
+            <option value="xamk">Kaakkois-Suomen ammattikorkeakoulu (XAMK)</option>
+            
+        </select><br><br>
+        <input type="submit" value="Tallenna">
+    </form>
+
+<!-- Navigation Bar -->
+<div class="navigation-bar">
+    <a href="/" class="nav-item" id="home">
+      <img src="navigation/logo-home.png" alt="Etusivu">
+      <span>Etusivu</span>
+    </a>
+    <a href="/historia" class="nav-item" id="history">
+      <img src="navigation/magnifying-glass.png" alt="Historia">
+      <span>Historia</span>
+    </a>
+    <a href="/paivakirja" class="nav-item" id="journal">
+      <img src="navigation/book-icon.png" alt="Päiväkirja">
+      <span>Päiväkirja</span>
+    </a>
+    <a href="/profiili" class="nav-item" id="profile">
+      <img src="navigation/user.png" alt="Profiili">
+      <span>Profiili</span>
+    </a> 
+  </div>  
+
+    <script type="module" src="/main-page.js"></script>
+
+  </body>
+</html>

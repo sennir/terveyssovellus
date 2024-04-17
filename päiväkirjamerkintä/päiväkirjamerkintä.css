@@ -1,0 +1,111 @@
+
+body {
+    font-family: Arial, sans-serif; /* Use a common sans-serif font */
+    background-color: #f0f0f0; /* Set a light background color */
+    padding-top: 20px; /* Add some padding to the top of the page */
+}
+
+#diaryform {
+    width: 90%; /* Adjust the width to fit smaller screens */
+    margin: 0 auto; /* Center the form horizontally */
+    background-color: #ffffff; /* Set a white background color */
+    border-radius: 10px; /* Add rounded corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+    padding: 20px; /* Add padding for better spacing */
+}
+
+/* Form element styles */
+#diaryform label {
+    font-weight: bold; /* Make labels bold for emphasis */
+}
+
+#diaryform input[type="text"],
+#diaryform input[type="number"],
+#diaryform textarea,
+#diaryform select {
+    width: calc(100% - 20px); /* Make inputs fill the width of the form with some padding */
+    box-sizing: border-box; /* Include padding and border in the width */
+    margin-bottom: 15px; /* Add spacing between inputs */
+    padding: 10px; /* Add padding for better appearance */
+    border: 1px solid #ccc; /* Add a border for visual separation */
+    border-radius: 5px; /* Add rounded corners */
+    font-size: 16px; /* Increase font size for better readability */
+}
+
+#diaryform select {
+    appearance: none; /* Remove default dropdown appearance */
+    background-image: url('data:image/svg+xml;utf8,<svg fill="%23444" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>'); /* Add custom dropdown arrow */
+    background-repeat: no-repeat;
+    background-position: right 10px center; /* Position the arrow on the right side */
+}
+
+#diaryform textarea {
+    resize: vertical; /* Allow vertical resizing of the textarea */
+}
+
+#diaryform .submitDiary {
+    background-color: #4CAF50; /* Add background color to the submit button */
+    color: white; /* Set text color to white */
+    padding: 15px; /* Add padding to the button */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Add rounded corners */
+    font-size: 18px; /* Increase font size for better readability */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    transition: background-color 0.3s ease; /* Add transition effect */
+}
+
+#diaryform .submitDiary:hover {
+    background-color: #45a049; /* Change background color on hover */
+}
+
+/* Media query for screens below 768 pixels */
+@media (max-width: 768px) {
+    #diaryform label {
+        display: block; /* Change display to block for vertical alignment */
+        width: auto; /* Reset width to auto to allow labels to take full width */
+        text-align: center; /* Align labels to the center */
+        padding-right: 0; /* Remove right padding */
+        margin-bottom: 5px; /* Add some spacing between labels */
+    }
+    /* Center align entry date input */
+    #diaryform #entryDate {
+        display: block; /* Change display to block for vertical alignment */
+        margin: 0 auto; /* Center align the input */
+        width: calc(60% - 20px); /* Adjust width as needed */
+        box-sizing: border-box; /* Ensure padding and border are included in the width */
+    }
+    .päiväkirjamerkintä {
+        text-align: center;
+    }
+    #diaryform .submitDiary {
+        display: block;
+        margin: auto;
+    }
+}
+
+/* Style for mood options */
+.mood-options {
+    margin-top: 10px; /* Add some spacing between label and options */
+    display: flex;
+    justify-content: center; /* Center align options horizontally */
+    flex-wrap: wrap; /* Allow options to wrap to next line if needed */
+    margin-bottom: 30px;
+}
+
+.mood-option {
+    cursor: pointer; /* Change cursor to pointer when hovering over options */
+    margin: 5px; /* Add some spacing between options */
+    font-size: 50px; /* Increase font size for better visibility */
+    transition: transform 0.5s ease; /* Add transition effect */
+}
+
+.mood-option:hover {
+    transform: scale(1.8); /* Scale up the emoji on hover for a cool effect */
+}
+
+/* Media query for screens above 768 pixels */
+@media (min-width: 769px) {
+    .mood-options {
+        justify-content: flex-start; 
+    }
+}
