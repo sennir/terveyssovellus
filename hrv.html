@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1, initial-scale=1.0">
+    <title>Mieliala</title>
+    <link rel="stylesheet" type="text/css" href="hrv.css" />
+    <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
+</head>
+
+<body>
+    <style>
+        .navigation-bar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 60px;
+    margin: 0 auto;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #ffffff; /* Match with your form background color */
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5);
+    z-index: 100;
+    border-radius: 15px;
+  }
+  
+  /* Media query suuremmille näytöille, jotka ovat yli 450 pikseliä leveitä */
+  @media (min-width: 350px) {
+    .navigation-bar {
+      width: 100%; /* Navigointipalkki venyy täyttämään saatavilla olevan tilan */
+    }
+  }
+
+  .nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: rgb(30, 30, 30);
+  }
+  
+  .nav-item img {
+    width: 24px; /* You can adjust the size as needed */
+    height: auto;
+    margin-bottom: 5px;
+  }
+  
+  .nav-item span {
+    font-size: 0.75em; /* You can adjust the size as needed */
+    text-align: center;
+  }
+  
+  /* Add this to prevent the content from being hidden behind the navigation bar */
+  body {
+    padding-bottom: 70px; /* Height of the navigation bar plus some extra space */
+  }
+    </style>
+    
+
+    <div class="navigation-bar">
+        <a href="/home" class="nav-item" id="home">
+          <img src="../navigation/book-icon.png" alt="Etusivu">
+          <span>Etusivu</span>
+        </a>
+        <a href="/historia" class="nav-item" id="history">
+          <img src="../navigation/magnifying-glass.png" alt="Historia">
+          <span>Historia</span>
+        </a>
+        <a href="/paivakirja" class="nav-item" id="journal">
+          <img src="../navigation\book-icon.png" alt="Päiväkirja">
+          <span>Päiväkirja</span>
+        </a>
+        <a href="/profiili" class="nav-item" id="profile">
+          <img src="../navigation/user.png" alt="Profiili">
+          <span>Profiili</span>
+        </a> 
+      </div> 
+
+    <header>
+        <h1>Mieliala</h1>
+    </header>
+    
+    <div>
+        <!-- Aikamääre vaihtoehdot -->
+        <section id="options">
+            <div class="options">
+                <button class="option" id="paivaButton">Päivä</button>
+                <button class="option" id="viikkoButton">Viikko</button>
+                <button class="option" id="kuukausiButton">Kuukausi</button>
+            </div>
+        </section>
+        
+        <!-- Graafinen yhteenveto mielialasta -->
+        <section>
+          <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
+          <script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
+          <script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
+          <div id="mainContainer">
+            <div id="emojiContainer">
+              <div>😁</div>
+              <div>😊</div>
+              <div>😐</div>
+              <div>😢</div>
+              <div>😭</div>
+            </div>
+            <div id="chartdiv"></div>
+          </div>
+        </section>
+        
+        <!-- Kuvaus mielialasta -->
+        <section id="mood-description">
+            <h2>Mieliala ()</h2>
+        </section>
+    </div>
+    
+    <!-- Script tag to import AmCharts library -->
+    <script src="https://cdn.amcharts.com/lib/5/core.js"></script>
+
+    <!-- Your JavaScript file -->
+    <script type="module" src="hrv.js"></script>
+
+</body>
+</html>

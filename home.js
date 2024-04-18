@@ -22,8 +22,6 @@ async function updateScale() {
         console.log(data);
 
         const readinessValue = data.readiness;
-        // const slider = document.getElementById("slider");
-        // const value = parseInt(slider.value);
         const indicator = document.getElementById("indicator");
         const sliderValue = document.getElementById("sliderValue");
         const readiness = document.getElementById("readiness");
@@ -69,11 +67,6 @@ function closeInfoWindow() {
     const infoWindow = document.getElementById("infoWindow");
     infoWindow.style.display = "none";
 }
-
-
-
-// Attach event listener to call updateScale when input value changes
-// document.getElementById("slider").addEventListener("change", updateScale);
 
 // Exporting functions to make them accessible from outside
 export { updateScale, showInfo, closeInfoWindow};
