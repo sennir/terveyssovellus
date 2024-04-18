@@ -40,7 +40,7 @@ cursor.lineY.set("visible", false);
 // Create placeholder data for each month
 var placeholderData = [
   { month: "Jan", mood: 1 },
-  { month: "Feb", mood: 2 },
+  { month: "Feb", mood: 5 },
   { month: "Mar", mood: 1 },
   { month: "Apr", mood: 1 },
   { month: "May", mood: 3 },
@@ -48,7 +48,7 @@ var placeholderData = [
   { month: "Jul", mood: 4 },
   { month: "Aug", mood: 2 },
   { month: "Sep", mood: 4 },
-  { month: "Oct", mood: 1 },
+  { month: "Oct", mood: 5 },
   { month: "Nov", mood: 2 },
   { month: "Dec", mood: 1 }
 ];
@@ -131,15 +131,14 @@ chart.set("scrollbarX", am5.Scrollbar.new(root, {
 // Make stuff animate on load
 chart.appear(1000, 100);
 
-// Assuming moodEntries is an array of mood values for each day of the month
-var moodEntries = [1, 2, 3, 4, 5, 4, 3, 2, 1, 2, 3, 4, 5, 4, 3, 2, 1, 2, 3, 4, 5, 4, 3, 2, 1, 2, 3, 4, 5, 4, 3];
+
 
 // Calculate the average mood
 var totalMood = 0;
-for (var i = 0; i < moodEntries.length; i++) {
-  totalMood += moodEntries[i];
+for (var i = 0; i < placeholderData.length; i++) {
+  totalMood += placeholderData[i].mood;
 }
-var averageMood = Math.round(totalMood / moodEntries.length);
+var averageMood = Math.round(totalMood / placeholderData.length);
 
 // Map the average mood to an emoji
 var emojiMap = {
@@ -151,5 +150,5 @@ var emojiMap = {
 };
 var averageMoodEmoji = emojiMap[averageMood];
 
-// Display the average mood emoji in the "mood-description" section
-document.getElementById('mood-description').innerHTML = '<h2>Mieliala ' + averageMoodEmoji + '</h2>';
+// Display the average mood emoji in the "mood-description" section with a class
+document.getElementById('mood-description').innerHTML = '<h2 class="large-emoji">Mieliala ' + averageMoodEmoji + '</h2>';
