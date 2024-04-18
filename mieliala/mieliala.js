@@ -130,3 +130,26 @@ chart.set("scrollbarX", am5.Scrollbar.new(root, {
 
 // Make stuff animate on load
 chart.appear(1000, 100);
+
+// Assuming moodEntries is an array of mood values for each day of the month
+var moodEntries = [1, 2, 3, 4, 5, 4, 3, 2, 1, 2, 3, 4, 5, 4, 3, 2, 1, 2, 3, 4, 5, 4, 3, 2, 1, 2, 3, 4, 5, 4, 3];
+
+// Calculate the average mood
+var totalMood = 0;
+for (var i = 0; i < moodEntries.length; i++) {
+  totalMood += moodEntries[i];
+}
+var averageMood = Math.round(totalMood / moodEntries.length);
+
+// Map the average mood to an emoji
+var emojiMap = {
+  1: '😭', // Emoji for value 1
+  2: '😢', // Emoji for value 2
+  3: '😐', // Emoji for value 3
+  4: '😊', // Emoji for value 4
+  5: '😁'  // Emoji for value 5
+};
+var averageMoodEmoji = emojiMap[averageMood];
+
+// Display the average mood emoji in the "mood-description" section
+document.getElementById('mood-description').innerHTML = '<h2>Mieliala ' + averageMoodEmoji + '</h2>';

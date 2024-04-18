@@ -72,3 +72,7 @@ section .options {
 #emojiContainer div {
   font-size: 40px; /* Adjust this value to change the size of the emojis */
 }
+
+#mood-description {
+  font-size: 25px;
+}
