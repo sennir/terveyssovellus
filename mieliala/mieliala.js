@@ -126,25 +126,35 @@ var placeholderData = [
   { date: "2024-04-01", mood: 5 },
   { date: "2024-05-01", mood: 5 },
   { date: "2024-06-01", mood: 5 },
-  { date: "2024-07-01", mood: 5 },
-  { date: "2024-08-01", mood: 5 },
+  { date: "2024-07-01", mood: 2 },
+  { date: "2024-08-01", mood: 3 },
   { date: "2024-09-01", mood: 4 },
   { date: "2024-10-01", mood: 5 },
-  { date: "2024-11-01", mood: 2 },
-  { date: "2024-12-01", mood: 5 },
+  { date: "2024-10-03", mood: 2 },
+  // { date: "2024-11-01", mood: 2 },
+  // { date: "2024-11-02", mood: 3 },
+  // { date: "2024-11-03", mood: 4 },
+  // { date: "2024-11-04", mood: 5 },
+  // { date: "2024-11-05", mood: 4 },
+  // { date: "2024-11-06", mood: 3 },
+  { date: "2024-11-07", mood: 5 },
+  { date: "2024-11-08", mood: 5 },
+  { date: "2024-11-09", mood: 5 },
+  { date: "2024-11-10", mood: 3 },
+  { date: "2024-11-21", mood: 1 },
   // Lisää dataa joulukuulle testausta varten
-  { date: "2024-12-02", mood: 1 },
-  { date: "2024-12-03", mood: 1 },
-  { date: "2024-12-04", mood: 2 },
-  { date: "2024-12-05", mood: 1 },
-  { date: "2024-12-06", mood: 3 },
-  { date: "2024-12-07", mood: 1 },
-  { date: "2024-12-08", mood: 1 },
-  { date: "2024-12-09", mood: 1 },
-  { date: "2024-12-10", mood: 1 },
-  { date: "2024-12-11", mood: 1 },
-  { date: "2024-12-12", mood: 1 },
-  { date: "2024-12-13", mood: 1 },
+  // { date: "2024-12-02", mood: 1 },
+  // { date: "2024-12-03", mood: 1 },
+  // { date: "2024-12-04", mood: 2 },
+  // { date: "2024-12-05", mood: 1 },
+  // { date: "2024-12-06", mood: 3 },
+  // { date: "2024-12-07", mood: 1 },
+  // { date: "2024-12-08", mood: 1 },
+  // { date: "2024-12-09", mood: 1 },
+  // { date: "2024-12-10", mood: 1 },
+  // { date: "2024-12-11", mood: 1 },
+  // { date: "2024-12-12", mood: 1 },
+  // { date: "2024-12-13", mood: 1 },
 ];
 
 // Konvertoidaan data viivakaavion ymmärtämään muotoon
@@ -193,19 +203,19 @@ vuosiButton.addEventListener('click', function() {
   // Resetoidaan data takaisin alkuperäiseen
   series.data.setAll(seriesData);
 
-  // Calculate the start and end dates for the entire year
+  // Lasketaan vuoden alkamis- ja päättymispäivät
   var startDate = new Date(seriesData[0].date);
-  startDate.setMonth(0); // January
-  startDate.setDate(1); // First day of the year
+  startDate.setMonth(0); // tammikuu
+  startDate.setDate(1); // Ensimmäinen päivä vuodesta
   var endDate = new Date(seriesData[seriesData.length - 1].date);
-  endDate.setMonth(11); // December
-  endDate.setDate(31); // Last day of the year
+  endDate.setMonth(11); // joulukuu
+  endDate.setDate(31); // Viimeinen päivä vuodesta
 
-  // Set the x-axis range to cover the entire year
+  // Asetetaan x-akselin skaala kattamaan koko vuosi
   xAxis.set("min", startDate.getTime());
   xAxis.set("max", endDate.getTime());
 
-  // Calculate the average mood for the entire year
+  // Lasketaan keskimääräinen mieliala vuodelle
   var totalMood = 0;
   for (var i = 0; i < seriesData.length; i++) {
     totalMood += seriesData[i].value;
@@ -218,64 +228,66 @@ vuosiButton.addEventListener('click', function() {
 });
 
 
-// Lisätään event listeneri kuukausi buttoniin
+// Lisätään tapahtumankäsittelijä 'kuukausi' -napille
 kuukausiButton.addEventListener('click', function() {
-  // lasketaan kuukauden päivät ja kuukauden ensimmäinen päivä
+  // Lasketaan viimeisen kuukauden alkamis- ja päättymispäivät
   var endDate = new Date(seriesData[seriesData.length - 1].date);
   var startDate = new Date(endDate.getFullYear(), endDate.getMonth(), 1);
   
-  // filteröidään data kuukauden mukaan
+  // Suodatetaan data sisältämään vain viimeisen kuukauden tiedot
   var filteredData = seriesData.filter(function(data) {
     var dataDate = new Date(data.date);
     return dataDate >= startDate && dataDate <= endDate;
   });
   
-  // Päivitetään kaavio ja zoomataan kuukauden mukaan
+  // Päivitetään kaavion data ja x-akselin skaala kattamaan viimeinen kuukausi
   series.data.setAll(filteredData);
   xAxis.set("min", startDate.getTime());
   xAxis.set("max", endDate.getTime());
-
-  // Lasketaan keskimääräinen mieliala kuukauden datalta
+  
+  // Lasketaan keskimääräinen mieliala viimeiselle kuukaudelle
   var totalMood = 0;
   for (var i = 0; i < filteredData.length; i++) {
     totalMood += filteredData[i].value;
   }
   var averageMood = Math.round(totalMood / filteredData.length);
-
-  // Päivitetään mieliala emoji kuukauden keskiarvolla
+  
+  // Kartutetaan keskimääräinen mieliala emojiiksi ja päivitetään mielialan kuvaus
   var averageMoodEmoji = emojiMap[averageMood];
   document.getElementById('mood-description').innerHTML = '<h2 class="large-emoji">Mieliala ' + averageMoodEmoji + '</h2>';
 });
 
-// Lisätään event listeneri viikko buttoniin
+
+// Lisätään tapahtumankäsittelijä 'viikko' -napille
 viikkoButton.addEventListener('click', function() {
-  // Lasketaan viikon päivät ja viikon ensimmäinen päivä
+  // Lasketaan viimeisen viikon alkamis- ja päättymispäivät
   var endDate = new Date(seriesData[seriesData.length - 1].date);
   var startDate = new Date(endDate);
-  startDate.setDate(endDate.getDate() - 6);
-  
-  // Filteröidään data viikon mukaan
+  startDate.setDate(endDate.getDate() - 6); // Viimeisen 7 päivän päivämäärä
+
+  // Suodatetaan data sisältämään vain viimeisen 7 päivän tiedot
   var filteredData = seriesData.filter(function(data) {
     var dataDate = new Date(data.date);
     return dataDate >= startDate && dataDate <= endDate;
   });
-
-  // Päivitetään kaavio ja zoomataan viikon mukaan
+  
+  // Päivitetään kaavion data ja x-akselin skaala kattamaan viimeiset 7 päivää
   series.data.setAll(filteredData);
   xAxis.set("min", startDate.getTime());
   xAxis.set("max", endDate.getTime());
-
-  // Lasketaan keskimääräinen mieliala viikon datalta
+  
+  // Lasketaan keskimääräinen mieliala viimeiselle viikolle
   var totalMood = 0;
   for (var i = 0; i < filteredData.length; i++) {
     totalMood += filteredData[i].value;
   }
   var averageMood = Math.round(totalMood / filteredData.length);
-
-  // Päivitetään mieliala emoji viikon keskiarvolla
+  
+  // Keskimääräinen mieliala emojiiksi ja päivitetään mielialan kuvaus
   var averageMoodEmoji = emojiMap[averageMood];
   document.getElementById('mood-description').innerHTML = '<h2 class="large-emoji">Mieliala ' + averageMoodEmoji + '</h2>';
 });
+
 
 
 
