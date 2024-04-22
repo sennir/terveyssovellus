@@ -10,9 +10,6 @@
  * ---------------------------------------
  */
 
-
-
-
 // Create root element
 var root = am5.Root.new("chartdiv");
 
@@ -131,17 +128,18 @@ var placeholderData = [
   { date: "2024-09-01", mood: 4 },
   { date: "2024-10-01", mood: 5 },
   { date: "2024-10-03", mood: 2 },
-  // { date: "2024-11-01", mood: 2 },
-  // { date: "2024-11-02", mood: 3 },
-  // { date: "2024-11-03", mood: 4 },
-  // { date: "2024-11-04", mood: 5 },
-  // { date: "2024-11-05", mood: 4 },
-  // { date: "2024-11-06", mood: 3 },
+  { date: "2024-11-01", mood: 2 },
+  { date: "2024-11-02", mood: 1 },
+  { date: "2024-11-03", mood: 1 },
+  { date: "2024-11-04", mood: 1 },
+  { date: "2024-11-05", mood: 4 },
+  { date: "2024-11-06", mood: 3 },
   { date: "2024-11-07", mood: 5 },
   { date: "2024-11-08", mood: 5 },
   { date: "2024-11-09", mood: 5 },
   { date: "2024-11-10", mood: 3 },
   { date: "2024-11-21", mood: 1 },
+  { date: "2024-11-22", mood: 2 },
   // Lisää dataa joulukuulle testausta varten
   // { date: "2024-12-02", mood: 1 },
   // { date: "2024-12-03", mood: 1 },
@@ -290,10 +288,83 @@ viikkoButton.addEventListener('click', function() {
 
 
 
+////// Datan selaaminen viikko tasolla //////
 
+// Button for browsing previous weeks
+var previousWeekButton = document.getElementById('previousWeekButton');
 
+// Event listener for previous week button
+previousWeekButton.addEventListener('click', function() {
+  // Get the current start and end dates of the displayed data
+  var startDate = new Date(xAxis.get("min"));
+  var endDate = new Date(xAxis.get("max"));
 
+  // Calculate the new start and end dates for the previous week
+  var previousWeekStartDate = new Date(startDate);
+  previousWeekStartDate.setDate(startDate.getDate() - 7);
+  var previousWeekEndDate = new Date(endDate);
+  previousWeekEndDate.setDate(endDate.getDate() - 7);
 
+  // Filter the data to include only the previous week's data
+  var filteredData = seriesData.filter(function(data) {
+    var dataDate = new Date(data.date);
+    return dataDate >= previousWeekStartDate && dataDate <= previousWeekEndDate;
+  });
+
+  // Update the chart data and x-axis scale to display the previous week's data
+  series.data.setAll(filteredData);
+  xAxis.set("min", previousWeekStartDate.getTime());
+  xAxis.set("max", previousWeekEndDate.getTime());
+
+  // Calculate the average mood for the previous week
+  var totalMood = 0;
+  for (var i = 0; i < filteredData.length; i++) {
+    totalMood += filteredData[i].value;
+  }
+  var averageMood = Math.round(totalMood / filteredData.length);
+
+  // Convert the average mood to an emoji and update the mood description
+  var averageMoodEmoji = emojiMap[averageMood];
+  document.getElementById('mood-description').innerHTML = '<h2 class="large-emoji">Mieliala ' + averageMoodEmoji + '</h2>';
+});
+
+// Button for browsing next weeks
+var nextWeekButton = document.getElementById('nextWeekButton');
+
+// Event listener for next week button
+nextWeekButton.addEventListener('click', function() {
+  // Get the current start and end dates of the displayed data
+  var startDate = new Date(xAxis.get("min"));
+  var endDate = new Date(xAxis.get("max"));
+
+  // Calculate the new start and end dates for the next week
+  var nextWeekStartDate = new Date(startDate);
+  nextWeekStartDate.setDate(startDate.getDate() + 7);
+  var nextWeekEndDate = new Date(endDate);
+  nextWeekEndDate.setDate(endDate.getDate() + 7);
+
+  // Filter the data to include only the next week's data
+  var filteredData = seriesData.filter(function(data) {
+    var date = new Date(data.date);
+    return date >= nextWeekStartDate && date <= nextWeekEndDate;
+  });
+
+  // Update the chart data and x-axis scale to display the next week's data
+  series.data.setAll(filteredData);
+  xAxis.set("min", nextWeekStartDate.getTime());
+  xAxis.set("max", nextWeekEndDate.getTime());
+
+  // Calculate the average mood for the next week
+  var totalMood = 0;
+  for (var i = 0; i < filteredData.length; i++) {
+    totalMood += filteredData[i].value;
+  }
+  var averageMood = Math.round(totalMood / filteredData.length);
+
+  // Convert the average mood to an emoji and update the mood description
+  var averageMoodEmoji = emojiMap[averageMood];
+  document.getElementById('mood-description').innerHTML = '<h2 class="large-emoji">Mieliala ' + averageMoodEmoji + '</h2>';
+});
 
 
 
