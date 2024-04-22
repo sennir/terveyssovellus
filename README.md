@@ -5,4 +5,4 @@
 ![App Screenshot](kuvat/päiväkirjamerkintä.png)
 
 amCharts kaavio
-![App Screenshot](kuvat/mieliala-v2.png)
+![App Screenshot](kuvat/mieliala-v3.png)
