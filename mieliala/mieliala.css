@@ -82,3 +82,27 @@ section .options {
   justify-content: center;
   margin-bottom: 30px;
 }
+
+#goBackButton {
+    position: fixed;
+    top: 30px;
+    left: 10px;
+    width: 50px;
+    height: 50px;
+    background-color: #28a745;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+
+  #goBackButton::before {
+    content: "";
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-right: 10px solid #fff;
+    transform: rotate(-0deg);
+  }

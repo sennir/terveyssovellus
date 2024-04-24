@@ -366,5 +366,7 @@ nextWeekButton.addEventListener('click', function() {
   document.getElementById('mood-description').innerHTML = '<h2 class="large-emoji">Mieliala ' + averageMoodEmoji + '</h2>';
 });
 
-
-
+// Edellinen sivu buttoni
+document.getElementById('goBackButton').addEventListener('click', function() {
+  history.back();
+});
