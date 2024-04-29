@@ -24,12 +24,12 @@
         <button onclick="showInfo()">Show Info</button>
         <h2 class="otsikko">Valmius</h2>
         <div class="valmiusslider">
-          <h1 id="sliderValue">50</h1> <!-- Initially set to default value -->
+          <h1 id="sliderValue"></h1> <!-- Initially set to default value -->
           <div class="scale" id="scale">
               <div class="indicator" id="indicator"></div>
           </div>
         
-          <input type="range" min="0" max="100" value="50" id="slider" onchange="updateScale()">
+          <!-- <input type="range" min="0" max="100" value="50" id="slider" onchange="updateScale()"> -->
           <h5 id="readiness"></h5>
         </div>
         <h3 id="lifeotsikko" style="text-align: center;" ></h3>
@@ -61,11 +61,11 @@
 
     <!-- Navigation Bar -->
   <div class="navigation-bar">
-      <a href="/home" class="nav-item" id="home">
+      <a href="home.html" class="nav-item" id="home">
         <img src="logo-home.png" alt="Etusivu">
         <span>Etusivu</span>
       </a>
-      <a href="/historia" class="nav-item" id="history">
+      <a href="historia.html" class="nav-item" id="history">
         <img src="magnifying-glass.png" alt="Historia">
         <span>Historia</span>
       </a>
