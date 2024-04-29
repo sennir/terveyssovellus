@@ -184,6 +184,26 @@ chart.set("scrollbarX", am5.Scrollbar.new(root, {
 // Make stuff animate on load
 chart.appear(1000, 100);
 
+var viikkoButton = document.getElementById('viikkoButton');
+
+// Lisätään tapahtumankäsittelijä 'viikko' -napille
+viikkoButton.addEventListener('click', function() {
+  // Lasketaan viimeisen viikon alkamis- ja päättymispäivät
+  var endDate = new Date(seriesData[seriesData.length - 1].date);
+  var startDate = new Date(endDate);
+  startDate.setDate(endDate.getDate() - 6); // Viimeisen 7 päivän päivämäärä
+
+  // Suodatetaan data sisältämään vain viimeisen 7 päivän tiedot
+  var filteredData = seriesData.filter(function(data) {
+    var dataDate = new Date(data.date);
+    return dataDate >= startDate && dataDate <= endDate;
+  });
+  
+  // Päivitetään kaavion data ja x-akselin skaala kattamaan viimeiset 7 päivää
+  series.data.setAll(filteredData);
+  xAxis.set("min", startDate.getTime());
+  xAxis.set("max", endDate.getTime());
+
 
 
 // Calculate the average mood
