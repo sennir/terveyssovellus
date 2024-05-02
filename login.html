@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <main>
+        <!-- Navigation bar -->
+        <div class="navigationbar">
+            <ul>
+                <li class="otsikko"> HealthDiary</li>
+                <li class="burger"> Home</li>
+                <li class="burger"><a href="http://localhost:5173/projektilogin.html" style="color: white;">Login</a></li>
+                <li class="burger"> Registration</li>
+            </ul>
+        </div>
+
+        <div class="flex_container">
+            <div class="create_user">
+                <h3>CREATE USER</h3>
+                <form class="create_user_form">
+                    <label for="username">Username</label><br>
+                    <input type="text" name="username" placeholder="username" /><br>
+                    <label for="password">Password</label><br>
+                    <input type="password" name="password" placeholder="password" /><br>
+                    <label for="email">Email</label><br>
+                    <input type="email" name="email" placeholder="update4@example.com" /><br>
+                    <input style="margin: 10px; margin-left: 0;" name="submit" type="submit" value="Create User" class="createuser" />
+                </form>
+            </div>
+
+            <div class="login_user">
+                <h3>LOGIN</h3>
+                <form class="login_form">
+                    <label for="username">Username</label><br>
+                    <input type="text" name="username" placeholder="username" /><br>
+                    <label for="password">Password</label><br>
+                    <input type="password" name="password" placeholder="password" /><br>
+                    <input style="margin: 10px; margin-left: 0;" name="submit" type="submit" value="Login and get new token" class="loginuser" />
+                </form>
+            </div>
+        </div>
+
+        
+    </main>
+    <footer>Copyright meitsi</footer>
+    <script type="module" src="login.js"></script>
+</body>
+</html>
