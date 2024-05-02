@@ -30,7 +30,7 @@ body{
     
 }
 
-.paivakirja-button{
+#paivakirja-button{
     background-color: green;
     padding: 5px;
     border-radius: 5px;

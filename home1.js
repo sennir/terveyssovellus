@@ -58,6 +58,16 @@ async function updateScale() {
 
 updateScale()
 
+// Get the button element by its ID
+const diarynappi = document.getElementById('paivakirja-button');
+
+// Add click event listener to the button
+diarynappi.addEventListener('click', function() {
+    console.log('nappi painettu!!!');
+    // Redirect to the specified URL when the button is clicked
+    window.location.href = "/terveyssovellus/päiväkirjamerkintä/päiväkirjamerkintä.html";
+});
+
 // Function to show information window
 function showInfo() {
     const infoWindow = document.getElementById("infoWindow");

@@ -56,22 +56,8 @@ loginUser.addEventListener('click', async (evt) => {
   console.log('Nyt logataan sisään');
   
   
-
-
-
-  // # Login
-  // POST http://localhost:3000/api/auth/login
-  // content-type: application/json
-  
-  // {
-  //   "username": "user",
-  //   "password": "secret"
-  // }
   const url = 'http://localhost:3000/api/auth/login';
 
-  // # Create user
-  // POST http://127.0.0.1:3000/api/users
-  // content-type: application/json
 
   const form = document.querySelector('.login_form');
 
@@ -94,10 +80,9 @@ loginUser.addEventListener('click', async (evt) => {
     // käsitellään fetchdata funktiosta tullut JSON
     console.log(data);
     console.log(data.token);
-    console.log(data.user.username);
+    console.log(data.user_id);
     localStorage.setItem('token', data.token);
-    localStorage.setItem('username', data.user.username);
-    localStorage.setItem('userID', data.user.user_id);
+    localStorage.setItem('userID', data.user_id);
     
 
     //fetch.js palauttaa BE puolen validointivirheen

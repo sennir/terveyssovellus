@@ -55,7 +55,6 @@ async function updateScale() {
 }
 
 updateScale()
-
 // Function to show information window
 function showInfo() {
     const infoWindow = document.getElementById("infoWindow");
@@ -69,4 +68,4 @@ function closeInfoWindow() {
 }
 
 // Exporting functions to make them accessible from outside
-export { updateScale, showInfo, closeInfoWindow};
+export { updateScale, showInfo, closeInfoWindow, userinfo};
