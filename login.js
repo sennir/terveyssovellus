@@ -108,7 +108,8 @@ loginUser.addEventListener('click', async (evt) => {
 
     } else {
       alert('Auth toimii: ja saadaan tokeni');
-      window.location.href = 'home.html';
+      var encodedUrl = encodeURI('../päiväkirjamerkintä/päiväkirjamerkintä.html');
+      window.location.href = encodedUrl;
 
     }
 

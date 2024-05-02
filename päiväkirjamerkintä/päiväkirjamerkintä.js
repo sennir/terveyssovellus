@@ -9,3 +9,52 @@ $(document).ready(function() {
     });
 });
 
+  // Päiväkirjamerkinnän lisääminen
+document.addEventListener('DOMContentLoaded', () => {
+    console.log('DOMContentLoaded event triggered');
+    const diaryForm = document.getElementById('diaryForm');
+  
+    if (diaryForm) {
+      diaryForm.addEventListener('submit', async (evt) => {
+        console.log('Form submit event triggered');
+        evt.preventDefault();
+        console.log('Form submitted');
+  
+        const formData = new FormData(diaryForm);
+        const data = {
+          entry_date: formData.get('entryDate'),
+          mood: formData.get('mood'),
+          notes: formData.get('notes'),
+          sleep_hours: formData.get('sleep_hours'),
+          weight: formData.get('weight'),
+        };
+  
+        // Log the data object to the console
+        console.log('Data:', data);
+  
+        const token = localStorage.getItem('token');
+        console.log('Token:', token);
+        const options = {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: 'Bearer ' + token,
+          },
+          body: JSON.stringify(data),
+        };
+  
+        // Fetch user ID dynamically
+        const userId = await getUserId();
+        const url = 'http://127.0.0.1:3000/api/entries';
+  
+        try {
+          const responseData = await fetchData(url, options);
+          console.log(responseData);
+          alert('Diary entry added successfully');
+        } catch (error) {
+          console.error('Error adding diary entry:', error);
+          alert('Error adding diary entry');
+        }
+      });
+    }
+  });
