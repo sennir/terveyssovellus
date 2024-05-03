@@ -1,0 +1,72 @@
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  }
+  
+  #chartdiv {
+    width: 100%;
+    height: 500px;
+  max-width: 100%
+  }
+
+  section .options {
+    margin: auto;
+    margin-bottom: 30px;
+}
+
+.options {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 400px;
+  }
+  
+  .option {
+    cursor: pointer;
+    margin: 10px;
+    padding: 15px 25px;
+    background-color: #28a745; 
+    color: #fff;
+    border: 2px solid #28a745; 
+    border-radius: 25px; 
+    font-size: 18px; 
+    transition: transform 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .option:hover {
+    transform: scale(1.05);
+    background-color: #218838; /* Darker green on hover */
+    border-color: #218838; /* Darker border on hover */
+  }
+
+  .time-selection {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+  }
+  
+  #goBackButton {
+      position: fixed;
+      top: 30px;
+      left: 10px;
+      width: 50px;
+      height: 50px;
+      background-color: #28a745;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+  
+    #goBackButton::before {
+      content: "";
+      width: 0;
+      height: 0;
+      border-top: 10px solid transparent;
+      border-bottom: 10px solid transparent;
+      border-right: 10px solid #fff;
+      transform: rotate(-0deg);
+    }
