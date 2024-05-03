@@ -88,8 +88,8 @@
 
     <!-- Uusi päiväkirjamerkintä -->
 
-    <div id="diaryform">
-        <form>
+    <div>
+        <form id="diaryform">
           <h3 class="päiväkirjamerkintä">Uusi päiväkirjamerkintä</h3>
           <label for="entryDate">Päivämäärä:</label><br>
           <input type="date" id="entryDate" name="entry_date" required><br><br>
@@ -97,11 +97,11 @@
         <!-- Mieliala -->
         <label for="mood">Mieliala:</label><br>
         <div class="mood-options">
-            <span class="mood-option" data-value="😄">😄 </span>
-            <span class="mood-option" data-value="😊">😊 </span>
-            <span class="mood-option" data-value="😐">😐 </span>
-            <span class="mood-option" data-value="😢">😢 </span>
-            <span class="mood-option" data-value="😞">😞 </span>
+            <span class="mood-option" data-value="5">😄 </span>
+            <span class="mood-option" data-value="4">😊 </span>
+            <span class="mood-option" data-value="3">😐 </span>
+            <span class="mood-option" data-value="2">😢 </span>
+            <span class="mood-option" data-value="1">😞 </span>
         </div>
         <input type="hidden" name="mood" id="selectedMood">
 

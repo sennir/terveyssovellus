@@ -1,3 +1,5 @@
+import { fetchData } from '/fetch.js';
+
 // jQuery code for handling mood selection
 $(document).ready(function() {
     $('.mood-option').click(function() {
@@ -9,52 +11,81 @@ $(document).ready(function() {
     });
 });
 
-  // Päiväkirjamerkinnän lisääminen
+// Diary entry submission
 document.addEventListener('DOMContentLoaded', () => {
-    console.log('DOMContentLoaded event triggered');
-    const diaryForm = document.getElementById('diaryForm');
-  
-    if (diaryForm) {
-      diaryForm.addEventListener('submit', async (evt) => {
-        console.log('Form submit event triggered');
-        evt.preventDefault();
-        console.log('Form submitted');
-  
-        const formData = new FormData(diaryForm);
-        const data = {
-          entry_date: formData.get('entryDate'),
-          mood: formData.get('mood'),
-          notes: formData.get('notes'),
-          sleep_hours: formData.get('sleep_hours'),
-          weight: formData.get('weight'),
-        };
-  
-        // Log the data object to the console
-        console.log('Data:', data);
-  
-        const token = localStorage.getItem('token');
-        console.log('Token:', token);
-        const options = {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            Authorization: 'Bearer ' + token,
-          },
-          body: JSON.stringify(data),
-        };
-  
-        // Fetch user ID dynamically
-        const userId = await getUserId();
-        const url = 'http://127.0.0.1:3000/api/entries';
-  
-        try {
-          const responseData = await fetchData(url, options);
-          console.log(responseData);
-          alert('Diary entry added successfully');
-        } catch (error) {
-          console.error('Error adding diary entry:', error);
-          alert('Error adding diary entry');
-        }
-      });
+  const diaryForm = document.getElementById('diaryform');
+  console.log(diaryForm); // This will log the form element to the console
+
+  if (diaryForm) {
+    diaryForm.addEventListener('submit', async (evt) => {
+      console.log('Form submitted'); // This will log when the form is submitted
+      evt.preventDefault();
+      console.log('Nyt lisätään päiväkirjamerkintä');
+    
+      const formData = new FormData(diaryForm);
+      const user_id = localStorage.getItem('user_id'); // Retrieve user ID from localStorage
+      
+      // Get the selected emoji and mood number
+      var selectedEmoji = $('.mood-option.active').data('value'); // Get the selected emoji
+      var selectedMood = $('.mood-option.active').data('value');
+  // Check if selectedMood is a valid integer
+  if (!Number.isInteger(parseInt(selectedMood))) {
+    alert("Invalid mood value. Please select a valid mood.");
+    return;
+  } else {
+    console.log('Selected Mood:', selectedMood); // Log the selected mood to the console
+  }
+
+  $('#selectedMood').val(selectedMood);
+  // Include selectedMood in the form data
+  formData.append('mood', selectedMood);
+
+$('#selectedMood').val(selectedMood);
+// Include selectedMood in the form data
+formData.append('mood', selectedMood);
+      
+      $('#selectedMood').val(selectedMood);
+      // Include selectedMood in the form data
+      formData.append('mood', selectedMood);
+
+      const mood = Number(formData.get('mood')); // Convert mood to a number
+
+    if (!Number.isInteger(mood)) {
+      alert('Invalid mood value. Please select a valid mood.');
+      return;
     }
-  });
+      
+
+      const data = {
+        user_id: user_id, 
+        entry_date: formData.get('entry_date'),
+        mood: mood,
+        notes: formData.get('notes'),
+        sleep_hours: formData.get('sleep_hours'),
+        weight: formData.get('weight'),
+      };
+      console.log('User ID:', data.user_id); // Log the user ID to the console
+      const token = localStorage.getItem('token');
+      const options = {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: 'Bearer ' + token,
+        },
+        body: JSON.stringify(data),
+      };
+
+      try {
+        console.log('Data:', data);
+        console.log('Options:', options);
+
+        const response = await fetch('http://127.0.0.1:3000/api/entries', options);
+        if (response.ok) {
+          alert('Diary entry added successfully');
+        }
+      } catch (error) {
+        console.error('Error:', error);
+      }
+    });
+  }
+});

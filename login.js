@@ -91,13 +91,19 @@ loginUser.addEventListener('click', async (evt) => {
     };
 
   fetchData(url, options).then((data) => {
+    if (data.user) {
+      console.log('Logged in as:', data.user.username);
+      console.log('User ID:', data.user_id);
+    } else {
+      console.error("User data is missing or undefined.");
+    }
     // käsitellään fetchdata funktiosta tullut JSON
     console.log(data);
     console.log(data.token);
     console.log(data.user.username);
     localStorage.setItem('token', data.token);
     localStorage.setItem('username', data.user.username);
-    localStorage.setItem('userID', data.user.user_id);
+    localStorage.setItem('user_id', data.user_id);
     
 
     //fetch.js palauttaa BE puolen validointivirheen
@@ -105,12 +111,11 @@ loginUser.addEventListener('click', async (evt) => {
 
     if (data.token == undefined) {
       alert('Unauth user: käyttäjänimi tai salasana ei oikein!!');
-
     } else {
       alert('Auth toimii: ja saadaan tokeni');
+      localStorage.setItem('token', data.token);
       var encodedUrl = encodeURI('../päiväkirjamerkintä/päiväkirjamerkintä.html');
       window.location.href = encodedUrl;
-
     }
 
     logResponse('loginResponce', `localStorage set with token value: ${data.token}`);
