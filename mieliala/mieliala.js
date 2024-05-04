@@ -114,6 +114,9 @@ if (isNaN(user_id) || !user_id) {
     .then((fetchedData) => {
       console.log("Data:", fetchedData); // Debugging fetched data
 
+    // Sort fetchedData by entry_date
+    fetchedData.sort((a, b) => new Date(a.entry_date) - new Date(b.entry_date));
+    
           // Populate `seriesData` with fetched data
     seriesData = fetchedData.map(entry => ({
       date: new Date(entry.entry_date).getTime(),
