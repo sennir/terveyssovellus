@@ -10,11 +10,9 @@
   </head>
 
   <body>
-
     <div class="merkinnat">
     <h1> Vanhat päiväkirjamerkinnät</h1>
     
-
   <div class ="button">
     <button id="päiväbutton">Päivä</button>
     <button id="viikkobutton">Viikko</button>
@@ -22,57 +20,14 @@
   </div>
 
     <h2>Viikko</h2>
-
-
-  <table>
-  
-    <tr>  
-      <td>Päivämäärä
-        <input type="date">
-        <input type="text">
-      </td>
-    </tr>
-    <tr>
-      <td>Päivämäärä
-        <input type="date">
-        <input type="text">
-      </td>
-    </tr>
-    <tr> 
-      <td>Päivämäärä
-        <input type="date">
-        <input type="text"></td>
-    </tr> 
-    <tr>
-      <td>Päivämäärä
-        <input type="date">
-        <input type="text"></td>
-    </tr>
-    <tr>
-      <td>Päivämääärä
-        <input type="date">
-        <input type="text"></td>
-    </tr>
-    <tr>
-      <td>Päivämääärä
-        <input type="date">
-        <input type="text">
-      </td>
-    </tr>
-    <tr>
-      <td>Päivämääärä
-        <input type="date">
-        <input type="text">
-      </td>
-    </tr>
-  </table>    
-
-
+    <table id="entries-table">
+      <tbody>
+        <!-- Rows will be inserted here -->
+      </tbody>
+    </table> 
 
     </div>
   </body>
-
-
 
 <!-- Navigation Bar -->
 <div class="navigation-bar">
@@ -93,6 +48,9 @@
       <span>Profiili</span>
     </a> 
   </div>  
+  <script type="module" src="vanhat_merkinnat.js"></script>
+
    </body>
+
   </html> 
   <script src="omat_tiedot.js" defer></script>

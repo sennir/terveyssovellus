@@ -5,6 +5,7 @@
 
 
 // Mapping from mood numbers to emojis
+// Mapping from mood numbers to emojis
 const emojiMap = {
   1: "😭",
   2: "😢",
@@ -13,61 +14,85 @@ const emojiMap = {
   5: "😁",
 };
 
-// Fetching user data
-// Fetching user data
-// Fetching user data based on a stored token and user ID
-var user_id = localStorage.getItem("user_id");
-var token = localStorage.getItem("token");
+// Function to get the emoji based on mood value
+function getMoodEmoji(mood) {
+  return emojiMap[mood] || "🤔"; // Default emoji if not found
+}
 
+document.addEventListener('DOMContentLoaded', () => {
+  const tableBody = document.querySelector('#entries-table tbody');
+  // tableBody.innerHTML = ''; // Clear any existing content
+  
+  const token = localStorage.getItem("token");
+  const user_id = localStorage.getItem("user_id"); // Assuming you have user_id stored in localStorage
 
+  // Fetch entries from the server and populate the table
+  fetch(`http://127.0.0.1:3000/api/entries/${user_id}`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  })
+  .then((response) => {
+    if (!response.ok) {
+      throw new Error("Network response was not ok");
+    }
+    return response.json();
+  })
+  .then((entries) => {
+    entries.forEach((entry) => {
+      const row = document.createElement('tr');
 
-fetch(`http://127.0.0.1:3000/api/entries/${user_id}`, {
-  headers: {
-    Authorization: `Bearer ${token}`,
-  },
-})
-.then((response) => {
-  if (!response.ok) {
-    throw new Error("Network response was not ok");
-  }
-  return response.json();
-})
-.then((fetchedData) => {
-  console.log("Fetched Data:", fetchedData);
+      const dateCell = document.createElement('td');
+      const dateLink = document.createElement('a');
+      dateLink.href = '#'; // No query string
+      dateLink.textContent = new Date(entry.entry_date).toLocaleDateString("en-GB");
 
-  fetchedData.sort((a, b) => new Date(a.entry_date) - new Date(b.entry_date));
-  const latestEntry = fetchedData[fetchedData.length - 1];
+      // Click handler to set selected entry and navigate
+      dateLink.addEventListener('click', () => {
+        localStorage.setItem('selectedEntry', JSON.stringify(entry));
+        window.location.href = 'paivakirjamerkinta.html';
+      });
 
-  // Convert the mood to emoji
-  const moodEmoji = emojiMap[latestEntry.mood] || "🤔"; // Default emoji
-
-  // Set the mood emoji in the larger text element
-  const moodEmojiElement = document.querySelector('.mood-emoji');
-  if (moodEmojiElement) {
-    moodEmojiElement.textContent = moodEmoji; // Display the emoji
-  }
-
-  // Display entry date in a readable format
-  const entryDate = new Date(latestEntry.entry_date).toLocaleDateString("en-GB", {
-    day: "numeric",
-    month: "numeric",
-    year: "numeric",
+      dateCell.appendChild(dateLink);
+      row.appendChild(dateCell);
+      tableBody.appendChild(row);
+    });
+  })
+  .catch((error) => {
+    console.error('There has been a problem with your fetch operation:', error);
   });
 
-  document.querySelector('.entry-date').textContent = entryDate;
+  // Retrieve and display selected entry in the form
+  const selectedEntry = JSON.parse(localStorage.getItem('selectedEntry'));
 
-  // Populate other fields in the "merkinnat" div
-  document.querySelector('.input-merkinta').value = latestEntry.notes;
-  document.querySelector('.input-weight').value = latestEntry.weight;
-  document.querySelector('.input-sleep').value = latestEntry.sleep_hours;
-  document.querySelector('.input-exercise').value = latestEntry.exercise_duration || '';
-  document.querySelector('.input-feedback').value = latestEntry.feedback || '';
-})
-.catch((error) => {
-  console.error("Error fetching data:", error);
+  if (selectedEntry) {
+    // Display the mood emoji
+    const moodEmojiElement = document.querySelector('.mood-emoji');
+    if (moodEmojiElement) {
+      const moodEmoji = getMoodEmoji(selectedEntry.mood);
+      moodEmojiElement.textContent = moodEmoji;
+    }
+
+    // Display the entry date in a readable format
+    const entryDate = new Date(selectedEntry.entry_date).toLocaleDateString("en-GB", {
+      day: "numeric",
+      month: "numeric",
+      year: "numeric",
+    });
+
+    const entryDateElement = document.querySelector('.entry-date');
+    if (entryDateElement) {
+      entryDateElement.textContent = entryDate;
+    }
+
+    // Populate the "merkinnat" div with entry details
+    document.querySelector('.input-merkinta').value = selectedEntry.notes || '';
+    document.querySelector('.input-weight').value = selectedEntry.weight || '';
+    document.querySelector('.input-sleep').value = selectedEntry.sleep_hours || '';
+    document.querySelector('.input-exercise').value = selectedEntry.exercise_duration || '';
+    document.querySelector('.input-feedback').value = selectedEntry.feedback || '';
+  } else {
+    console.error("No selected entry found in localStorage");
+  }
 });
-
-
-
-
 
