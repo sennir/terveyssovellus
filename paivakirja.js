@@ -1,33 +1,73 @@
-import { fetchData } from './fetch.js';
-import { getFormData } from './päiväkirjamerkintä.js';
+// import { fetchData } from './fetch.js';
+// import { getFormData } from './päiväkirjamerkintä.js';
 
-const data = getFormData();
-console.log(data);
+// Fetching user data based on a stored token and user ID
 
-// Fetch the diary entries from the server
-const response = await fetch('http://127.0.0.1:3000/api/entries', {
+
+// Mapping from mood numbers to emojis
+const emojiMap = {
+  1: "😭",
+  2: "😢",
+  3: "😐",
+  4: "😊",
+  5: "😁",
+};
+
+// Fetching user data
+// Fetching user data
+// Fetching user data based on a stored token and user ID
+var user_id = localStorage.getItem("user_id");
+var token = localStorage.getItem("token");
+
+
+
+fetch(`http://127.0.0.1:3000/api/entries/${user_id}`, {
   headers: {
-    Authorization: 'Bearer ' + localStorage.getItem('token'),
+    Authorization: `Bearer ${token}`,
   },
+})
+.then((response) => {
+  if (!response.ok) {
+    throw new Error("Network response was not ok");
+  }
+  return response.json();
+})
+.then((fetchedData) => {
+  console.log("Fetched Data:", fetchedData);
+
+  fetchedData.sort((a, b) => new Date(a.entry_date) - new Date(b.entry_date));
+  const latestEntry = fetchedData[fetchedData.length - 1];
+
+  // Convert the mood to emoji
+  const moodEmoji = emojiMap[latestEntry.mood] || "🤔"; // Default emoji
+
+  // Set the mood emoji in the larger text element
+  const moodEmojiElement = document.querySelector('.mood-emoji');
+  if (moodEmojiElement) {
+    moodEmojiElement.textContent = moodEmoji; // Display the emoji
+  }
+
+  // Display entry date in a readable format
+  const entryDate = new Date(latestEntry.entry_date).toLocaleDateString("en-GB", {
+    day: "numeric",
+    month: "numeric",
+    year: "numeric",
+  });
+
+  document.querySelector('.entry-date').textContent = entryDate;
+
+  // Populate other fields in the "merkinnat" div
+  document.querySelector('.input-merkinta').value = latestEntry.notes;
+  document.querySelector('.input-weight').value = latestEntry.weight;
+  document.querySelector('.input-sleep').value = latestEntry.sleep_hours;
+  document.querySelector('.input-exercise').value = latestEntry.exercise_duration || '';
+  document.querySelector('.input-feedback').value = latestEntry.feedback || '';
+})
+.catch((error) => {
+  console.error("Error fetching data:", error);
 });
-if (!response.ok) {
-  throw new Error(`HTTP error! status: ${response.status}`);
-}
-const entries = await response.json();
 
-// Select the elements where you want to display the data
-const entryDateElement = document.querySelector('.merkinnat input[name="entryDate"]');
-const moodElement = document.querySelector('.merkinnat input[name="mood"]');
-const notesElement = document.querySelector('.merkinnat input[name="notes"]');
-const sleepHoursElement = document.querySelector('.merkinnat input[name="sleep_hours"]');
-const weightElement = document.querySelector('.merkinnat input[name="weight"]');
 
-// Display the data
-// Assuming entries is an array and you want to display the last entry
-const lastEntry = entries[entries.length - 1];
-entryDateElement.value = lastEntry.entry_date;
-moodElement.value = lastEntry.mood;
-notesElement.value = lastEntry.notes;
-sleepHoursElement.value = lastEntry.sleep_hours;
-weightElement.value = lastEntry.weight;
+
+
 

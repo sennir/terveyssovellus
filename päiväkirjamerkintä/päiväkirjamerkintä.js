@@ -55,6 +55,8 @@ formData.append('mood', selectedMood);
       return;
     }
       
+    console.log('Exercise Duration:', formData.get('exercise_duration'));
+
 
       const data = {
         user_id: user_id, 
@@ -63,7 +65,10 @@ formData.append('mood', selectedMood);
         notes: formData.get('notes'),
         sleep_hours: formData.get('sleep_hours'),
         weight: formData.get('weight'),
+        exercise_duration: formData.get('exercise_duration'),
       };
+      console.log('Data:', data); // Log the data to the console
+      
       console.log('User ID:', data.user_id); // Log the user ID to the console
       const token = localStorage.getItem('token');
       const options = {

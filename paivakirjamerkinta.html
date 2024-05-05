@@ -10,22 +10,26 @@
   </head>
 
     <body class="sivu">
-      <h2>Päivämäärä:</h2>
+      <h2>Päivämäärä: <span class="entry-date"></span></h2>
 
       <h1>Päiväkirjamerkintä</h1>
       
 
-    <div class="merkinnat">
+      <div class="merkinnat">
         <h3>Päiväkirjamerkintä</h3>
-        <input type="text" name="merkinta" placeholder="" required/>
-        <h3>Hrv:</h3>
+        <input class="input-merkinta" type="text" name="merkinta" placeholder="" required/>
         <h3>Mieliala:</h3>
+        <span class="mood-emoji" style="font-size: 60px;"></span>
         <h3>Paino:</h3>
+        <input class="input-weight" type="number" name="weight" placeholder="" required/>
         <h3>Uni:</h3>
+        <input class="input-sleep" type="number" name="sleep" placeholder="" required/>
         <h3>Liikunta (kesto/intensiivisyys):</h3>
+        <input class="input-exercise" type="text" name="exercise" placeholder="" required/>
         <h3>Ammattilaisen palaute:</h3>
-        <input type="text" name="palaute" placeholder="" required/>
-    </div>
+        <input class="input-feedback" type="text" name="palaute" placeholder="" required/>
+      </div>
+      
   
 
 <!-- Navigation Bar -->
