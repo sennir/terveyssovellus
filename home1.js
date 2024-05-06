@@ -43,10 +43,16 @@ async function updateScale() {
 
     try {
         console.log(options, url);
+        
         const data = await fetchData(url, options);
-        console.log('Readiness:', data.results[0].result.readiness);
+        
+        // Get the index of the latest result (last element of the results array)
+        const latestIndex = data.results.length - 1;
 
-        const readinessValue = data.results[0].result.readiness;
+        // Access the readiness value of the latest result
+        const readinessValue = data.results[latestIndex].result.readiness;
+
+        // const readinessValue = data.results[0].result.readiness;
         const indicator = document.getElementById("indicator");
         const sliderValue = document.getElementById("sliderValue");
         const readiness = document.getElementById("readiness");
@@ -109,4 +115,4 @@ function closeInfoWindow() {
 window.closeInfoWindow = closeInfoWindow;
 
 // Exporting functions to make them accessible from outside
-export { updateScale, showInfo, closeInfoWindow};
+export {showInfo, closeInfoWindow};
