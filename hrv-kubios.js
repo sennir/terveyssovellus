@@ -6,10 +6,10 @@ const mockHRVValues = [60, 70, 65, 80, 75, 85, 90];
 let data;
 
 // Generate 50 random values between 100 and 200
-for (let i = 0; i < 150; i++) {
-    const randomValue = Math.floor(Math.random() * (200 - 100 + 1) + 100);
-    mockHRVValues.push(randomValue);
-}
+// for (let i = 0; i < 150; i++) {
+//     const randomValue = Math.floor(Math.random() * (200 - 100 + 1) + 100);
+//     mockHRVValues.push(randomValue);
+// }
 
 async function updateScale() {
     const id = localStorage.getItem('userID');
@@ -44,15 +44,10 @@ async function updateScale() {
 
 
         }
-        // for (let i = 0; i < data.results.length; i++) {
-        //     // Push the value into the array
-        //     console.log(i);
-        //     dateList.push(data.results[i].daily_result);
-        //     console.log(data.results[i].daily_result);
-        // }
-
+       
         // Concatenate mock values with real values
-        hrvList = hrvList.concat(mockHRVValues);
+        //MOKKI DATA VERSIO POISTA KOMMENTTI
+        // hrvList = hrvList.concat(mockHRVValues);
 
         // Set the startDate based on the fetched date
         startDate = new Date(data.results[0].daily_result);
@@ -295,27 +290,30 @@ series.events.on("datavalidated", () => {
   updateLabel(value);
 })
 
-updateScale().then(() => {
-    // Set data to your hrvList instead of generating random data
-    series.data.setAll(hrvList.map((value, index) => ({
-        date: startDate.getTime() + index * 86400000, // Assuming a day interval
-        value: value
-    })));
-}).catch(error => {
-    console.error('Error fetching data:', error);
-});
+//MOKKI DATA VERSIO POISTA KOMMENTTI
+
+// updateScale().then(() => {
+//     // Set data to your hrvList instead of generating random data
+//     series.data.setAll(hrvList.map((value, index) => ({
+//         date: startDate.getTime() + index * 86400000, // Assuming a day interval
+//         value: value
+//     })));
+// }).catch(error => {
+//     console.error('Error fetching data:', error);
+// });
 
 //If we use real data 
 
-// updateScale().then(() => {
-//     Set data to your hrvList instead of generating random data
-//     series.data.setAll(hrvList.map((value, index) => ({
-//       date: dayList[index].getTime(), // Using dayList as x-axis values
-//       value: value
-//   })));
-// }).catch(error => {
-//   console.error('Error fetching data:', error);
-// });
+updateScale().then(() => {
+    //Set data to your hrvList instead of generating random data
+    series.data.setAll(hrvList.map((value, index) => ({
+    date: dayList[index].getTime(), // Using dayList as x-axis values
+    value: value
+  })));
+}).catch(error => {
+  console.error('Error fetching data:', error);
+});
+
 
 
 
