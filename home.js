@@ -88,7 +88,7 @@ const diarynappi = document.getElementById('paivakirja-button');
 diarynappi.addEventListener('click', function() {
     console.log('nappi painettu!!!');
     // Redirect to the specified URL when the button is clicked
-    window.location.href = "/päiväkirjamerkintä/päiväkirjamerkintä.html";
+    window.location.href = "/terveyssovellus/päiväkirjamerkintä/päiväkirjamerkintä.html";
 });
 
 // Function to show information window

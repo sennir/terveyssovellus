@@ -1,4 +1,4 @@
-import { fetchData } from '/fetch.js';
+// import {fetchData} from '/fetch.js';
 
 // jQuery code for handling mood selection
 $(document).ready(function() {
