@@ -114,7 +114,7 @@ loginUser.addEventListener('click', async (evt) => {
     } else {
       alert('Auth toimii: ja saadaan tokeni');
       localStorage.setItem('token', data.token);
-      var encodedUrl = encodeURI('/mieliala/mieliala.html');
+      var encodedUrl = encodeURI('home.html');
       window.location.href = encodedUrl;
     }
 

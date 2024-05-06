@@ -78,3 +78,21 @@ table, tr, td {
   body {
     padding-bottom: 70px; /* Height of the navigation bar plus some extra space */
   }
+
+#entries-table {
+  /* Add border-spacing to the table */
+  border-spacing: 10px;
+}
+
+.date-cell {
+    /* Add styles for the date cells */
+    color: #000; /* Set text color */
+    font-size: 16px; /* Set font size */
+    padding: 5px; /* Add padding */
+}
+
+.date-cell a {
+  /* Add styles for the links inside date cells */
+  text-decoration: none; /* Remove link underline */
+  color: #000; /* Set text color */
+}

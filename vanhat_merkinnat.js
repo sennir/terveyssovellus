@@ -22,6 +22,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         const row = document.createElement('tr');
   
         const dateCell = document.createElement('td');
+        dateCell.className = 'date-cell'; // Set the class
         const dateLink = document.createElement('a');
         dateLink.href = '#'; // Remove the query string
         dateLink.textContent = new Date(entry.entry_date).toLocaleDateString("en-GB");
