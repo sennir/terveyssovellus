@@ -1,6 +1,7 @@
 import { fetchData } from './fetch.js';
 let hrvList; // Define hrvList in an accessible scope
 let startDate; // Declare startDate as a global variable
+let dayList = [];
 const mockHRVValues = [60, 70, 65, 80, 75, 85, 90];
 let data;
 
@@ -38,6 +39,10 @@ async function updateScale() {
             hrvList.push(data.results[i].result.sd1_ms);
             console.log(data.results[i].result.sd1_ms);
             console.log(data.results[i].daily_result);
+            dayList.push(new Date(data.results[i].daily_result));
+            console.log(dayList)
+
+
         }
         // for (let i = 0; i < data.results.length; i++) {
         //     // Push the value into the array
@@ -299,6 +304,19 @@ updateScale().then(() => {
 }).catch(error => {
     console.error('Error fetching data:', error);
 });
+
+//If we use real data 
+
+// updateScale().then(() => {
+//     Set data to your hrvList instead of generating random data
+//     series.data.setAll(hrvList.map((value, index) => ({
+//       date: dayList[index].getTime(), // Using dayList as x-axis values
+//       value: value
+//   })));
+// }).catch(error => {
+//   console.error('Error fetching data:', error);
+// });
+
 
 
   

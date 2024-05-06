@@ -1,13 +1,38 @@
 // Importing fetchData function from fetch.js module
 import { fetchData } from './fetch.js';
 
-async function updateScale() {
-    const id = localStorage.getItem('userID');
-    console.log('Getting individual entries for ID:', id);
+async function updateName() {
+    const url = `http://127.0.0.1:3000/api/kubios/user-info`;
+    const token = localStorage.getItem('token');
     
+    const options = {
+        method: 'GET',
+        headers: {
+            Authorization: 'Bearer ' + token,
+        },
+    };
+
+    try {
+        const data = await fetchData(url, options);
+        const firstname = data.user.given_name;
+
+        const firstNameElement = document.getElementById('firstname');
+        if (firstNameElement) {
+            firstNameElement.textContent = 'Hei ' + firstname + '!';
+        } else {
+            console.error('Element with id "firstname" not found');
+        }
+    } catch (error) {
+        console.error('Error fetching data:', error);
+    } 
+}
+
+
+
+
+async function updateScale() {
     const url = `http://127.0.0.1:3000/api/kubios/user-data`;
     const token = localStorage.getItem('token');
-    console.log(token);
     
     const options = {
       method: 'GET',
@@ -19,8 +44,6 @@ async function updateScale() {
     try {
         console.log(options, url);
         const data = await fetchData(url, options);
-        console.log('tässä dataa', data);
-
         console.log('Readiness:', data.results[0].result.readiness);
 
         const readinessValue = data.results[0].result.readiness;
@@ -55,7 +78,7 @@ async function updateScale() {
         console.error('Error fetching data:', error);
     } 
 }
-
+updateName()
 updateScale()
 
 // Get the button element by its ID
@@ -74,11 +97,16 @@ function showInfo() {
     infoWindow.style.display = "block";
 }
 
+// Attach showInfo to the window object
+window.showInfo = showInfo;
+
 // Function to close information window
 function closeInfoWindow() {
     const infoWindow = document.getElementById("infoWindow");
     infoWindow.style.display = "none";
 }
+// Attach closeInfoWindow to the window object
+window.closeInfoWindow = closeInfoWindow;
 
 // Exporting functions to make them accessible from outside
 export { updateScale, showInfo, closeInfoWindow};
