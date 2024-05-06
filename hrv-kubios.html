@@ -4,7 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="hrv-kubios.css">
-    <title>Document</title>
+    <title>Sykevälivaihtelu</title>
+    <script type="module" src="goBackButton.js"></script>
+    <script type="module">
+      import { createGoBackButton } from './goBackButton.js';
+      createGoBackButton();
+    </script>
 </head>
 <body>
 
@@ -80,22 +85,6 @@
   <header>
     <h1 style="text-align: center;">Sykevälivaihtelu (millisekuntteina)</h1>
 </header>
-
-        <!-- Aikamääre vaihtoehdot -->
-        <section id="options">
-          
-          <div class="options">
-              <button class="option" id="viikkoButton">Viikko</button>
-              <button class="option" id="kuukausiButton">Kuukausi</button>
-              <button class="option" id="vuosiButton">Vuosi</button>
-          </div>
-          
-            <div class="time-selection">
-              <button id="previousWeekButton">Edellinen viikko</button>
-              <button id="nextWeekButton">Seuraava viikko</button>
-            </div>
-      </section>
-
 
 
     <script src="https://cdn.amcharts.com/lib/5/index.js"></script>

@@ -7,6 +7,11 @@
     <link rel="stylesheet" type="text/css" href="mieliala.css" />
     <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
     <script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
+    <script type="module" src="goBackButton.js"></script>
+    <script type="module">
+      import { createGoBackButton } from '/goBackButton.js';
+      createGoBackButton();
+    </script>
     
 </head>
 
@@ -84,9 +89,6 @@
     <header>
         <h1>Mieliala</h1>
     </header>
-
-    <!-- Edellinen sivu button -->
-    <button id="goBackButton"></button>
 
     <div>
           

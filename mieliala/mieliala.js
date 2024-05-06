@@ -326,7 +326,3 @@ nextWeekButton.addEventListener("click", function () {
     '<h2 class="large-emoji">Mieliala ' + averageMoodEmoji + "</h2>";
 });
 
-// Button to go back
-document.getElementById("goBackButton").addEventListener("click", function () {
-  history.back();
-});
