@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+<div class="navigation-bar">
+    <a href="home.html" class="nav-item" id="home">
+      <img src="logo-home.png" alt="Etusivu">
+      <span>Etusivu</span>
+    </a>
+    <a href="historia.html" class="nav-item" id="history">
+      <img src="magnifying-glass.png" alt="Historia">
+      <span>Historia</span>
+    </a>
+    <a href="/paivakirja" class="nav-item" id="journal">
+      <img src="book-icon.png" alt="Päiväkirja">
+      <span>Päiväkirja</span>
+    </a>
+    <a href="/profiili" class="nav-item" id="profile">
+      <img src="user.png" alt="Profiili">
+      <span>Profiili</span>
+    </a> 
+  </div> 
+
+  <header>
+    <h3>Sykevälivaihtelu (millisekuntteina)</h3>
+</header>
+
+        <!-- Aikamääre vaihtoehdot -->
+        <section id="options">
+          
+          <div class="options">
+              <button class="option" id="viikkoButton">Viikko</button>
+              <button class="option" id="kuukausiButton">Kuukausi</button>
+              <button class="option" id="vuosiButton">Vuosi</button>
+          </div>
+          
+            <div class="time-selection">
+              <button id="previousWeekButton">Edellinen viikko</button>
+              <button id="nextWeekButton">Seuraava viikko</button>
+            </div>
+      </section>
+
+
+
+    <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
+    <div id="chartdiv"></div>
+</body>
+
+    <script type="module" src="hrv-kubios.js"></script>
+</html>

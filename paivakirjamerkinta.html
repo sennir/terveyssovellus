@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1, initial-scale=1.0">
+    <title>Päiväkirjamerkintä</title>
+    <link rel="stylesheet" type="text/css" href="paivakirjamerkinta.css" />
+</head>
+
+<body>
+    <style>
+        .navigation-bar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 60px;
+    margin: 0 auto;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #ffffff; /* Match with your form background color */
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5);
+    z-index: 100;
+  }
+  
+  /* Media query suuremmille näytöille, jotka ovat yli 450 pikseliä leveitä */
+  @media (min-width: 350px) {
+    .navigation-bar {
+      width: 100%; /* Navigointipalkki venyy täyttämään saatavilla olevan tilan */
+    }
+  }
+
+  .nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: rgb(30, 30, 30);
+  }
+  
+  .nav-item img {
+    width: 24px; 
+    height: auto;
+    margin-bottom: 5px;
+  }
+  
+  .nav-item span {
+    font-size: 0.75em; 
+    text-align: center;
+  }
+  
+  /* Add this to prevent the content from being hidden behind the navigation bar */
+  body {
+    padding-bottom: 70px; /* Height of the navigation bar plus some extra space */
+  }
+    </style>
+    
+    <div class="navigation-bar">
+        <a href="/home" class="nav-item" id="home">
+          <img src="../navigation/book-icon.png" alt="Etusivu">
+          <span>Etusivu</span>
+        </a>
+        <a href="/historia" class="nav-item" id="history">
+          <img src="../navigation/magnifying-glass.png" alt="Historia">
+          <span>Historia</span>
+        </a>
+        <a href="/paivakirja" class="nav-item" id="journal">
+          <img src="../navigation\book-icon.png" alt="Päiväkirja">
+          <span>Päiväkirja</span>
+        </a>
+        <a href="/profiili" class="nav-item" id="profile">
+          <img src="../navigation/user.png" alt="Profiili">
+          <span>Profiili</span>
+        </a> 
+      </div> 
+
+    <!-- Uusi päiväkirjamerkintä -->
+
+    <div id="diaryform">
+        <form>
+          <h3 class="päiväkirjamerkintä">Uusi päiväkirjamerkintä</h3>
+          <label for="entryDate">Päivämäärä:</label><br>
+          <input type="date" id="entryDate" name="entry_date" required><br><br>
+          
+        <!-- Mieliala -->
+        <label for="mood">Mieliala:</label><br>
+        <div class="mood-options">
+            <span class="mood-option" data-value="😄">😄 </span>
+            <span class="mood-option" data-value="😊">😊 </span>
+            <span class="mood-option" data-value="😐">😐 </span>
+            <span class="mood-option" data-value="😢">😢 </span>
+            <span class="mood-option" data-value="😞">😞 </span>
+        </div>
+        <input type="hidden" name="mood" id="selectedMood">
+
+          
+          <!-- Uni -->
+          <label for="sleep_hours">Unen määrä (h):</label><br>
+          <select name="sleep_hours" required>
+            <option value="" disabled selected></option>
+            <option value="0">0 tuntia</option>
+            <option value="1">1 tuntia</option>
+            <option value="2">2 tuntia</option>
+            <option value="3">3 tuntia</option>
+            <option value="4">4 tuntia</option>
+            <option value="5">5 tuntia</option>
+            <option value="6">6 tuntia</option>
+            <option value="7">7 tuntia</option>
+            <option value="8">8 tuntia</option>
+            <option value="9">9 tuntia</option>
+            <option value="10">10 tai yli</option>
+          </select><br><br>
+          
+          <!-- Paino -->
+          <label for="weight">Paino (kg):</label><br>
+          <input type="number" name="weight" placeholder="" required><br><br>
+          
+          <!-- Liikunta -->
+          <label for="exercise_duration">Liikunnan kesto (min):</label><br>
+          <input type="number" name="exercise_duration" placeholder="" required><br><br>
+          
+          <!-- Päiväkirja -->
+          <label for="notes">Päiväkirjamerkintä:</label><br>
+          <textarea name="notes" placeholder="Kirjoita päiväkirjaan" required></textarea><br><br>
+          
+          <!-- Tallenna -->
+          <input type="submit" value="Tallenna" class="submitDiary">
+        </form>
+      </div>
+    
+<script type="module" src="päiväkirjamerkintä.js"></script>
+</body>
+</html>

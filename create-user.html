@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="center">
+  <h3>Opiskelijan hyvinvointisovellus</h3><br> 
+  <h4 id="create">Luo uusi käyttäjä</h4>
+    <main>
+        <div class="flex_container">
+            <div class="create_user">
+                <form class="create_user_form">
+                    <label for="username">Käyttäjänimi</label><br>
+                    <input type="text" name="username" placeholder="käyttäjänimi" /><br>
+                    <label for="password">Salasana</label><br>
+                    <input type="password" name="password" placeholder="salasana" /><br>
+                    <label for="email">Email</label><br>
+                    <input type="email" name="email" placeholder="user@example.com" /><br>
+                    <input style="margin: 10px; margin-left: 0;" name="submit" type="submit" value="Luo käyttäjä" class="createuser" />
+                </form>
+            </div>
+    </main>
+    <script type="module" src="login.js"></script>
+    <a href="/login.html" class="button">Siirry takaisin kirjautumissivulle</a>
+</body>
+</html>

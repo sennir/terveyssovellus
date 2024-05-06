@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1, initial-scale=1.0">
+    <title>Mieliala</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+
+<body>
+    <div class="navigation-bar">
+        <a href="/home" class="nav-item" id="home">
+          <img src="../navigation/book-icon.png" alt="Etusivu">
+          <span>Etusivu</span>
+        </a>
+        <a href="/historia" class="nav-item" id="history">
+          <img src="../navigation/magnifying-glass.png" alt="Historia">
+          <span>Historia</span>
+        </a>
+        <a href="/paivakirja" class="nav-item" id="journal">
+          <img src="../navigation\book-icon.png" alt="Päiväkirja">
+          <span>Päiväkirja</span>
+        </a>
+        <a href="/profiili" class="nav-item" id="profile">
+          <img src="../navigation/user.png" alt="Profiili">
+          <span>Profiili</span>
+        </a> 
+      </div> 
+
+    <header>
+        <h1>Mieliala</h1>
+    </header>
+    
+    <div>
+        <!-- Aikamääre vaihtoehdot -->
+        <section id="options">
+            <div class="options">
+                <button class="option" id="paivaButton">Päivä</button>
+                <button class="option" id="viikkoButton">Viikko</button>
+                <button class="option" id="kuukausiButton">Kuukausi</button>
+            </div>
+        </section>
+        
+        <!-- Graafinen yhteenveto mielialasta -->
+        <section id="mood-graphical-interface">
+        
+            <div id="placeholder-box"></div>
+            <style>
+            /* Placeholder box styles */
+            #placeholder-box {
+                margin: auto;
+                width: 80%; 
+                max-width: 600px; 
+                height: 300px; 
+                background-color: #f0f0f0; 
+                border: 1px solid #ccc; 
+                border-radius: 10px; 
+                padding: 20px; 
+                color: #666;
+            }
+            </style>
+        </section>
+        
+        <!-- Kuvaus mielialasta -->
+        <section id="mood-description">
+            <h2>Mieliala ()</h2>
+
+        </section>
+    </div>
+
+</body>
+</html>
