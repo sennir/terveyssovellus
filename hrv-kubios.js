@@ -35,12 +35,11 @@ async function updateScale() {
 
         for (let i = 0; i < data.results.length; i++) {
             // Push the value into the array
-            console.log(i);
-            hrvList.push(data.results[i].result.sd1_ms);
-            console.log(data.results[i].result.sd1_ms);
-            console.log(data.results[i].daily_result);
+            hrvList.push(data.results[i].result.rmssd_ms);
+            console.log(data.results[i].result.rmssd_ms);
+            // console.log(data.results[i].daily_result);
             dayList.push(new Date(data.results[i].daily_result));
-            console.log(dayList)
+            // console.log(dayList)
 
 
         }
@@ -275,7 +274,7 @@ function updateLabel(value) {
     value = yAxis.positionToValue(position);
   }
 
-  label.set("text", root.numberFormatter.format(value, "#.00") + ">Stop loss");
+  label.set("text", root.numberFormatter.format(value, "#.00") + "<Goal ms");
 
   rangeDataItem.set("value", value);
 }
