@@ -18,16 +18,19 @@ document.addEventListener('DOMContentLoaded', async () => {
       return response.json();
     })
     .then((entries) => {
+      // Sort entries by date from newest to oldest
+      entries.sort((a, b) => new Date(b.entry_date) - new Date(a.entry_date));
+  
+      // Add sorted entries to the table
       entries.forEach((entry) => {
         const row = document.createElement('tr');
   
         const dateCell = document.createElement('td');
-        dateCell.className = 'date-cell'; // Set the class
+        dateCell.className = 'date-cell';
         const dateLink = document.createElement('a');
-        dateLink.href = '#'; // Remove the query string
+        dateLink.href = '#';
         dateLink.textContent = new Date(entry.entry_date).toLocaleDateString("en-GB");
         dateLink.addEventListener('click', function() {
-          // Store the entry in localStorage and navigate to the paivakirjamerkinta.html page
           localStorage.setItem('selectedEntry', JSON.stringify(entry));
           window.location.href = 'paivakirjamerkinta.html';
         });
@@ -41,5 +44,4 @@ document.addEventListener('DOMContentLoaded', async () => {
       console.error('There has been a problem with your fetch operation:', error);
     });
   });
-
   
