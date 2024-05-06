@@ -34,16 +34,16 @@ async function updateScale() {
         hrvList = [];
 
         for (let i = 0; i < data.results.length; i++) {
-            // Push the value into the array
-            console.log(i);
-            hrvList.push(data.results[i].result.sd1_ms);
-            console.log(data.results[i].result.sd1_ms);
-            console.log(data.results[i].daily_result);
-            dayList.push(new Date(data.results[i].daily_result));
-            console.log(dayList)
+          // Push the value into the array
+          console.log(i);
+          hrvList.push(data.results[i].result.rmssd_ms);
+          console.log(data.results[i].result.rmssd_ms);
+          // console.log(data.results[i].daily_result);
+          dayList.push(new Date(data.results[i].daily_result));
+          // console.log(dayList)
 
 
-        }
+      }
        
         // Concatenate mock values with real values
         //MOKKI DATA VERSIO POISTA KOMMENTTI
@@ -275,10 +275,12 @@ function updateLabel(value) {
     value = yAxis.positionToValue(position);
   }
 
-  label.set("text", root.numberFormatter.format(value, "#.00") + ">Stop loss");
+  // label.set("text", root.numberFormatter.format(value, "#.00") + ">Stop loss");
 
   rangeDataItem.set("value", value);
-}
+  // Dispose of the rangeDataItem to remove the line
+  rangeDataItem.dispose();
+  }
 
 // when data is validated, set range value to the middle
 series.events.on("datavalidated", () => {
