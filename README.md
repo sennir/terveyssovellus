@@ -1,3 +1,1 @@
-# Terveyssovellus
-
-# Test push
+Opiskelijan hyvinvointisovellus
