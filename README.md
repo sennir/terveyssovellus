@@ -45,3 +45,6 @@ https://www.figma.com/file/sTPumhIctBJiHKm1zbAay2/terveyssovellus?type=design&no
 
 ![image](https://github.com/sennir/terveyssovellus/assets/111979727/e070d070-c105-415b-ad37-e7337203cbda)
 
+![image](https://github.com/sennir/terveyssovellus/assets/111979727/618e873d-a014-4d79-862c-b6f8de97fda8)
+
+
