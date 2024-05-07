@@ -1,4 +1,4 @@
-Opiskelijan hyvinvointisovellus
+# Opiskelijan hyvinvointisovellus
 
 kuvakaappaukset sovelluksen käyttöliittymästä 
 
