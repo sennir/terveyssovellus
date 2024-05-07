@@ -49,10 +49,13 @@ async function updateScale() {
     try {
         console.log(options, url);
         const data = await fetchData(url, options);
-        console.log('Readiness:', data.results[0].result.readiness);
+        
+        // Get the index of the latest result (last element of the results array)
+        const latestIndex = data.results.length - 1;
 
-        // const readinessValue = data.results[0].result.readiness;
-        const readinessValue = 75;
+        // Access the readiness value of the latest result
+        const readinessValue = data.results[latestIndex].result.readiness;
+
         const indicator = document.getElementById("indicator");
         const sliderValue = document.getElementById("sliderValue");
         const readiness = document.getElementById("readiness");
