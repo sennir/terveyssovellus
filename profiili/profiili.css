@@ -1,0 +1,64 @@
+body {
+    /* Standard syntax */
+    background: linear-gradient(to bottom, rgb(48, 56, 50), rgb(147, 181, 146));
+    min-width: 320px;
+    min-height: 100vh;
+    margin: 16px;
+    padding: 16px;
+    color: rgb(0, 0, 0);
+    background-size: cover;
+    background-position: center;
+  }
+
+.profiili-menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 15px;
+    padding: 20px;
+}
+
+.profiili-menu ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.profiili-menu li {
+    margin-bottom: 25px;
+}
+
+.profiili-menu a {
+    display: inline-block;
+    padding: 20px; /* Increase padding for larger buttons */
+    width: 80%; /* Use a percentage width for responsiveness */
+    max-width: 300px; /* Limit maximum width for larger screens */
+    background-color: #4CAF50;
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    text-align: center;
+    font-size: 20px; /* Increase font size for larger screens */
+    font-weight: bold;
+    box-shadow: 0 6px 6px rgba(0, 0, 0, 0.4); /* Add small shadow effect */
+    transition: box-shadow 0.3s ease; /* Add transition for smooth effect */
+}
+
+.profiili-menu a:hover {
+    background-color: #45a049;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); /* Adjust shadow on hover */
+}
+
+/* Media query for larger screens */
+@media screen and (min-width: 768px) {
+    .profiili-menu a {
+        width: 100%; 
+        max-width: 500px; /* Increase maximum width for larger screens */
+        font-size: 24px; /* Further increase font size for larger screens */
+    }
+}
