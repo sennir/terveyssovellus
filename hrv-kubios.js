@@ -15,7 +15,7 @@ async function updateScale() {
     const id = localStorage.getItem('userID');
     console.log('Getting individual entries for ID:', id);
     
-    const url = `http://127.0.0.1:3000/api/kubios/user-data`;
+    const url = `https://hyvinvointisovellus.northeurope.cloudapp.azure.com/api/kubios/user-data`;
     const token = localStorage.getItem('token');
     console.log('haetaan tietoa');
     

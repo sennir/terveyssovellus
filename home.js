@@ -7,7 +7,8 @@ const sliderValue = document.querySelector(".sliderValue");
 const readinesstext = document.querySelector("#readiness");
 
 async function updateName() {
-    const url = `http://127.0.0.1:3000/api/kubios/user-info`;
+    const url = `https://hyvinvointisovellus.northeurope.cloudapp.azure.com/api/kubios/user-info`;
+    // const url = `http://127.0.0.1:3000/api/kubios/user-info`;
     const token = localStorage.getItem('token');
     
     const options = {
@@ -36,7 +37,7 @@ async function updateName() {
 
 
 async function updateScale() {
-    const url = `http://127.0.0.1:3000/api/kubios/user-data`;
+    const url = `https://hyvinvointisovellus.northeurope.cloudapp.azure.com/api/kubios/user-data`;
     const token = localStorage.getItem('token');
     
     const options = {

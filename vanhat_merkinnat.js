@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     var user_id = localStorage.getItem("user_id"); // Assuming you have user_id stored in localStorage
   
     // Fetch entries from the server
-    fetch(`http://127.0.0.1:3000/api/entries/${user_id}`, {
+    fetch(`https://hyvinvointisovellus.northeurope.cloudapp.azure.com/api/entries/${user_id}`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },

@@ -100,7 +100,7 @@ var token = localStorage.getItem("token");
 if (isNaN(user_id) || !user_id) {
   console.error("user_id is not a valid number or not available");
 } else {
-  fetch("http://127.0.0.1:3000/api/entries/" + user_id, {
+  fetch("https://hyvinvointisovellus.northeurope.cloudapp.azure.com/api/entries/" + user_id, {
     headers: {
       Authorization: "Bearer " + token,
     },
