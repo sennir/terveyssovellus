@@ -1,0 +1,137 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: linear-gradient(to bottom, rgb(48, 56, 50), rgb(147, 181, 146));
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 16px;
+  padding: 16px;
+  color: rgb(0, 0, 0);
+  background-size: cover;
+  background-position: center;
+}
+
+header {
+    text-align: center;
+}
+
+h2 {
+    text-align: center;
+}
+
+section .options {
+    margin: auto;
+    margin-bottom: 30px;
+}
+
+.options {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 400px;
+  }
+  
+  .option {
+    cursor: pointer;
+    margin: 10px;
+    padding: 15px 25px;
+    background-color: #28a745; 
+    color: #fff;
+    border: 2px solid #28a745; 
+    border-radius: 25px; 
+    font-size: 18px; 
+    transition: transform 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .option:hover {
+    transform: scale(1.05);
+    background-color: #218838; /* Darker green on hover */
+    border-color: #218838; /* Darker border on hover */
+  }
+
+/* Media query for screens below 460 pixels */
+@media (max-width: 460px) {
+  .option {
+    padding: 10px 15px; /* Reduce padding to make buttons smaller */
+    font-size: 16px; /* Reduce font size to match smaller buttons */
+  }
+}
+
+/* Media query for screens above 768 pixels */
+/* @media (min-width: 769px) {
+    h1,
+    h2,
+    #placeholder-box {
+        justify-content: flex-start;
+        text-align: left;
+        padding: 10px; 
+        
+    }
+} */
+
+#mainContainer {
+  display: flex;
+  align-items: stretch; /* This will make the child elements stretch to fill the container */
+}
+
+#emojiContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 30px 0; /* Add some padding to align the emojis with the chart */
+  margin-bottom: 70px;
+}
+
+#chartdiv {
+  width: 100%;
+  height: 500px;
+  background-color: white;
+  border-radius: 15px;
+}
+
+h1 {
+  color: white;
+}
+
+#emojiContainer div {
+  font-size: 40px; /* Adjust this value to change the size of the emojis */
+}
+
+#mood-description {
+  font-size: 30px;
+}
+
+.time-selection {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.time-selection button {
+  margin: 0 10px;
+  padding: 10px 20px;
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.time-selection button:hover {
+  background-color: #218838;
+}
+
+h2 {
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .time-selection button {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+}

@@ -1,0 +1,12 @@
+body {
+    /* Standard syntax */
+    background: linear-gradient(to bottom, rgb(48, 56, 50), rgb(147, 181, 146));
+    min-width: 320px;
+    min-height: 100vh;
+    margin: 16px;
+    padding: 16px;
+    color: rgb(0, 0, 0);
+    background-size: cover;
+    background-position: center;
+  }
+    

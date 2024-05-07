@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="stylesheet" type="text/css" href="paivakirja.css"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script type="module" src="goBackButton.js"></script>
+    <script type="module">
+      import { createGoBackButton } from '/goBackButton.js';
+      createGoBackButton();
+    </script>
+    <title>Päiväkirjamerkintä</title>
+  </head>
+
+    <body class="sivu">
+      <h2>Päivämäärä: <span class="entry-date"></span></h2>
+
+      <h1>Päiväkirjamerkintä</h1>
+      
+
+      <div class="merkinnat">
+        <h3>Päiväkirjamerkintä</h3>
+        <textarea class="input-merkinta" name="merkinta" placeholder="" required></textarea>        <h3>Mieliala:</h3>
+        <span class="mood-emoji" style="font-size: 60px;"></span>
+        <h3>Paino:</h3>
+        <input class="input-weight" type="number" name="weight" placeholder="" required/>
+        <h3>Uni:</h3>
+        <input class="input-sleep" type="number" name="sleep" placeholder="" required/>
+        <h3>Liikunta (kesto/intensiivisyys):</h3>
+        <input class="input-exercise" type="text" name="exercise" placeholder="" required/>
+        <h3>Ammattilaisen palaute:</h3>
+        <input class="input-feedback" type="text" name="palaute" placeholder="" required/>
+      </div>
+      
+  
+
+<!-- Navigation Bar -->
+<div class="navigation-bar">
+  <a href="home.html" class="nav-item" id="home">
+    <img src="../navigation/logo-home.png" alt="Etusivu">
+    <span>Etusivu</span>
+  </a>
+  <a href="historia\historia.html" class="nav-item" id="history">
+    <img src="../navigation/magnifying-glass.png" alt="Historia">
+    <span>Historia</span>
+  </a>
+  <a href="päiväkirjamerkintä/päiväkirjamerkintä.html" class="nav-item" id="journal">
+    <img src="../navigation/book-icon.png" alt="Päiväkirja">
+    <span>Päiväkirja</span>
+  </a>
+  <a href="/profiili/profiili.html" class="nav-item" id="profile">
+    <img src="../navigation/user.png" alt="Profiili">
+    <span>Profiili</span>
+  </a> 
+</div>  
+<script type="module" src="paivakirja.js"></script>
+ </body>
+</html> 
+
