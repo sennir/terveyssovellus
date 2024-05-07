@@ -84,7 +84,7 @@ formData.append('mood', selectedMood);
         console.log('Data:', data);
         console.log('Options:', options);
 
-        const response = await fetch('https://hyvinvointisovellus.northeurope.cloudapp.azure.com/api/entries', options);
+        const response = await fetch('http://localhost:3000/api/entries', options);
         if (response.ok) {
           alert('Diary entry added successfully');
         }

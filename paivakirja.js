@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const user_id = localStorage.getItem("user_id"); // Assuming you have user_id stored in localStorage
 
   // Fetch entries from the server and populate the table
-  fetch(`https://hyvinvointisovellus.northeurope.cloudapp.azure.com/api/entries/${user_id}`, {
+  fetch(`http://localhost:3000/api/entries/${user_id}`, {
     headers: {
       Authorization: `Bearer ${token}`,
     },

@@ -67,7 +67,7 @@ loginUser.addEventListener('click', async (evt) => {
   //   "username": "user",
   //   "password": "secret"
   // }
-  const url = 'https://hyvinvointisovellus.northeurope.cloudapp.azure.com/api/auth/login';
+  const url = 'http://localhost:3000/api/auth/login';
 
   // # Create user
   // POST http://127.0.0.1:3000/api/users
@@ -134,7 +134,7 @@ meRequest.addEventListener('click', async () => {
   // GET http://localhost:3000/api/auth/me
   // Authorization: Bearer (put-user-token-here)
 
-  const url = 'https://hyvinvointisovellus.northeurope.cloudapp.azure.com/api/auth/me';
+  const url = 'http://localhost:3000/api/auth/me';
   const muntokeni = localStorage.getItem('token');
   console.log('Tämä on haettu LocalStoragesta', muntokeni);
 
