@@ -96,3 +96,22 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
+// Get the textarea element
+const textarea = document.querySelector('.input-merkinta');
+
+// Function to adjust the height
+function adjustHeight() {
+  textarea.style.height = 'auto'; // Temporarily shrink the textarea to get the correct scrollHeight
+  textarea.style.whiteSpace = 'pre-wrap'; // Allow the text to wrap to the next line
+  textarea.style.wordWrap = 'break-word'; // Break words onto the next line if they are too long
+  textarea.style.overflowWrap = 'break-word'; // Same as word-wrap, but for future browsers
+  setTimeout(function() {
+    textarea.style.height = textarea.scrollHeight + 'px'; // Set the height to the scrollHeight
+  }, 0);
+}
+
+// Listen for the input event
+textarea.addEventListener('input', adjustHeight);
+
+// Call the function initially to set the correct height
+adjustHeight();

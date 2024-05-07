@@ -51,6 +51,14 @@ section .options {
     border-color: #218838; /* Darker border on hover */
   }
 
+/* Media query for screens below 460 pixels */
+@media (max-width: 460px) {
+  .option {
+    padding: 10px 15px; /* Reduce padding to make buttons smaller */
+    font-size: 16px; /* Reduce font size to match smaller buttons */
+  }
+}
+
 /* Media query for screens above 768 pixels */
 /* @media (min-width: 769px) {
     h1,
@@ -119,4 +127,11 @@ h1 {
 
 h2 {
   color: white;
+}
+
+@media (max-width: 768px) {
+  .time-selection button {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
 }
