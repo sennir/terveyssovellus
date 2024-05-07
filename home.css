@@ -1,8 +1,13 @@
 body{
     /*background-image: url(puutausta.jpg);*/
-    background-color: white;
+    background: linear-gradient(to bottom, rgb(48, 56, 50), rgb(147, 181, 146));
+    min-width: 320px;
+    min-height: 100vh;
+    margin: 16px;
+    padding: 16px;
+    color: black;
     background-size: cover;
-    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .info-icon{
@@ -12,6 +17,11 @@ body{
     justify-content: right;
     
 }
+
+#firstname {
+  color: white !important;
+}
+
 
 /* Kotisivun flexboxi tyylittelyt*/
 
@@ -36,21 +46,26 @@ body{
     border-radius: 5px;
     color: white;
     margin: 15px;
+    font-size: large;
 }
 
-.valmius{
-    display: flex;
-    flex-direction: column;
-    border: solid 2px;
-    padding: 10px;
-    justify-content: center;
-    align-items: center;
-    background-color: gray;
-    border-radius: 15px;
-    padding-bottom: 10px;
-    margin-bottom: 10px;
-    
+.valmius {
+  display: flex;
+  height: 500px;
+  max-width: 390px;
+  flex-direction: column;
+  border: solid 2px;
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
+  /* background-image: url(palmu.jpg); */
+  background-size: cover; /* This will zoom the background image to cover the entire element */
+  background-position: center; /* This will center the background image */
+  border-radius: 15px;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
 }
+
 
 .otsikko{
   background-color: white;
@@ -59,7 +74,8 @@ body{
 }
 
 .valmiusslider{
-  background-color: white;
+  /* background-color: white; */
+  color: white;
   text-align: center;
   padding: 5px;
   border-radius: 10px;
@@ -93,15 +109,17 @@ body{
     position: relative;
     border: 1px solid #000;
     overflow: hidden;
+    color: white;
     
 }
 
 .indicator {
+    /* background-color: white !important; Override inline style */
     position: absolute;
     bottom: 0;
     left: 0;
     height: 100%;
-    background-color: black;
+    color: white;
     transition: width 0.5s;
 }
 
@@ -181,4 +199,6 @@ body{
   body {
     padding-bottom: 70px; /* Height of the navigation bar plus some extra space */
   }
+ 
 
+  
