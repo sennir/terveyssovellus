@@ -27,7 +27,7 @@ https://www.figma.com/file/sTPumhIctBJiHKm1zbAay2/terveyssovellus?type=design&no
   
 ### Kuvankaappaukset käyttöliittymästä
 
-<img width="299" alt="Screenshot 2024-05-07 at 14 43 31" src="https://github.com/sennir/terveyssovellus/assets/111979727/63958260-8ab8-44f5-b677-05f0b6b4dac3">
+<img width="299" alt="Screenshot 2024-05-07 at 14 51 40" src="https://github.com/sennir/terveyssovellus/assets/111979727/b92767cc-c615-4f81-96f7-78527659611c">
 
 ![image](https://github.com/sennir/terveyssovellus/assets/111979727/ab3d2ee8-5ed9-4068-a43f-e61edc5d11c4)
 
