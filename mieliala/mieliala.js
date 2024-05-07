@@ -186,7 +186,8 @@ vuosiButton.addEventListener("click", function () {
 // Month button event listener
 kuukausiButton.addEventListener("click", function () {
   var endDate = new Date(seriesData[seriesData.length - 1].date);
-  var startDate = new Date(endDate.getFullYear(), endDate.getMonth(), 1);
+  var startDate = new Date(endDate);
+  startDate.setMonth(endDate.getMonth() - 1); // Last month
 
   var filteredData = seriesData.filter((data) => {
     var dataDate = new Date(data.date);
@@ -326,3 +327,5 @@ nextWeekButton.addEventListener("click", function () {
     '<h2 class="large-emoji">Mieliala ' + averageMoodEmoji + "</h2>";
 });
 
+series.appear(1000);
+chart.appear(1000, 100);

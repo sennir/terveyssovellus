@@ -31,6 +31,8 @@ export function createGoBackButton() {
   const img = document.createElement('img');
   img.id = 'goBackButton';
   img.src = 'gobackbutton.png'; // replace with your image path
+  img.src = '../gobackbutton.png'; // Go up one level in the directory structure
+
 
   // Add the event listener
   img.addEventListener('click', function () {
@@ -45,6 +47,20 @@ export function createGoBackButton() {
   img.style.height = '50px';
   img.style.cursor = 'pointer';
 
+  // Create a style element for the hover effect
+const style = document.createElement('style');
+style.textContent = `
+  #goBackButton:hover {
+    transform: scale(1.3); /* Increase the size of the image when hovered */
+    transition: transform 0.5s ease;
+  }
+`;
+
+// Append the style element to the head of the document
+document.head.appendChild(style);
+  
+
   // Append the img to the body
   document.body.appendChild(img);
 }
+

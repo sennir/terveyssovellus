@@ -1,5 +1,25 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: linear-gradient(to bottom, rgb(48, 56, 50), rgb(147, 181, 146));
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 16px;
+  padding: 16px;
+  color: rgb(0, 0, 0);
+  background-size: cover;
+  background-position: center;
+}
+
+h1 {
+  color: white;
+}
+
+h2 {
+  color: white;
+}
+
 .sivu{
-    background-color: rgb(207, 172, 240);
+    background-color: white;
     min-width: 320px;
     min-height: 100vh;
     margin: auto;
@@ -15,7 +35,7 @@
 
 .merkinnat{
     
-    background-color: #f1dfee;
+    background-color: white;
     border-radius: 25px;
     width: auto;
     align-items: center;   

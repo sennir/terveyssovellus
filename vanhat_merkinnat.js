@@ -30,6 +30,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         const dateLink = document.createElement('a');
         dateLink.href = '#';
         dateLink.textContent = new Date(entry.entry_date).toLocaleDateString("en-GB");
+        dateLink.className = 'date-link'; // Class for the date link
+
         dateLink.addEventListener('click', function() {
           localStorage.setItem('selectedEntry', JSON.stringify(entry));
           window.location.href = 'paivakirjamerkinta.html';

@@ -1,50 +1,50 @@
 
 import { fetchData } from './fetch.js';
 
-// haetaan nappi josta lähetetään formi ja luodaan käyttäjä
-const createUser = document.querySelector('.createuser');
+// // haetaan nappi josta lähetetään formi ja luodaan käyttäjä
+// const createUser = document.querySelector('.createuser');
 
-createUser.addEventListener('click', async (evt) => {
-  evt.preventDefault();
-  console.log('Nyt luodaan käyttäjä');
-  alert('New user created');
-  const url = 'http://localhost:3000/api/users';
-
-
-  // # Create user
-  // POST http://127.0.0.1:3000/api/users
-  //content-type: application/json
-
-  const form = document.querySelector('.create_user_form');
-  const username = form.querySelector('input[name = username]').value;
-  const password = form.querySelector('input[name = password]').value;
-  const email = form.querySelector('input[name = email]').value;
-  console.log(username, password, email);
+// createUser.addEventListener('click', async (evt) => {
+//   evt.preventDefault();
+//   console.log('Nyt luodaan käyttäjä');
+//   alert('New user created');
+//   const url = 'http://localhost:3000/api/users';
 
 
-  const data = {
-    "username": username,
-    "password": password,
-    "email": email,
-    // "password": form.querySelector('input[name = password]').value,
-    // "email": form.querySelector('input[name = email]').value
-  }
+//   // # Create user
+//   // POST http://127.0.0.1:3000/api/users
+//   //content-type: application/json
+
+//   const form = document.querySelector('.create_user_form');
+//   const username = form.querySelector('input[name = username]').value;
+//   const password = form.querySelector('input[name = password]').value;
+//   const email = form.querySelector('input[name = email]').value;
+//   console.log(username, password, email);
+
+
+//   const data = {
+//     "username": username,
+//     "password": password,
+//     "email": email,
+//     // "password": form.querySelector('input[name = password]').value,
+//     // "email": form.querySelector('input[name = email]').value
+//   }
   
 
-  const options = {
-      method: "POST", // *GET, POST, PUT, DELETE, etc.
-      headers: {
-        "Content-Type": "application/json",
-        // 'Content-Type': 'application/x-www-form-urlencoded',
-      },
-      body: JSON.stringify(data), // body data type must match "Content-Type" header
-    };
-  fetchData(url, options).then((data) => {
+//   const options = {
+//       method: "POST", // *GET, POST, PUT, DELETE, etc.
+//       headers: {
+//         "Content-Type": "application/json",
+//         // 'Content-Type': 'application/x-www-form-urlencoded',
+//       },
+//       body: JSON.stringify(data), // body data type must match "Content-Type" header
+//     };
+//   fetchData(url, options).then((data) => {
 
-    // käsitellään fetchdata funktiosta tullut JSON
-    console.log(data);
-  });
-});
+//     // käsitellään fetchdata funktiosta tullut JSON
+//     console.log(data);
+//   });
+// });
 
 
 // haetaan nappi josta haetaan formi ja logataan sisään
