@@ -351,8 +351,5 @@ function filterCurrentWeekData() {
   series.data.setAll(filteredData);
 }
 
-// Add click event listener to the button
-showWeekButton.addEventListener("click", filterCurrentWeekData);
-
 
 

@@ -54,7 +54,8 @@ async function updateScale() {
         const latestIndex = data.results.length - 1;
 
         // Access the readiness value of the latest result
-        const readinessValue = data.results[latestIndex].result.readiness;
+        // const readinessValue = data.results[latestIndex].result.readiness;
+        const readinessValue = 95;
 
         const indicator = document.getElementById("indicator");
         const sliderValue = document.getElementById("sliderValue");
