@@ -2,10 +2,15 @@
 
 ### Linkki sovellukseen
 
+https://terveyssovellus.norwayeast.cloudapp.azure.com/public/login.html
+
 ### Linkki figmaan
 
 https://www.figma.com/file/sTPumhIctBJiHKm1zbAay2/terveyssovellus?type=design&node-id=0-1&mode=design
 
+### Back End repo
+
+https://github.com/Jerekk/Projekti-backendi-ryhm--4/tree/projectmain
 
 ### Tietokanta
 
