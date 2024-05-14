@@ -2,10 +2,15 @@
 
 ### Linkki sovellukseen
 
+https://terveyssovellus.norwayeast.cloudapp.azure.com/public/login.html
+
 ### Linkki figmaan
 
 https://www.figma.com/file/sTPumhIctBJiHKm1zbAay2/terveyssovellus?type=design&node-id=0-1&mode=design
 
+### Back End repo
+
+https://github.com/Jerekk/Projekti-backendi-ryhm--4/tree/projectmain
 
 ### Tietokanta
 
@@ -48,3 +53,86 @@ https://www.figma.com/file/sTPumhIctBJiHKm1zbAay2/terveyssovellus?type=design&no
 ![image](https://github.com/sennir/terveyssovellus/assets/111979727/618e873d-a014-4d79-862c-b6f8de97fda8)
 
 ![image](https://github.com/sennir/terveyssovellus/assets/111979727/f8b38b1c-52bf-4ca1-8695-dc35837e724f)
+
+
+--- 
+
+## API Dokumentaatio – Opiskelijan hyvinvointisovellus
+
+#### Yleiskuvaus
+API tarjoaa pääsyn palvelimen resursseihin, jotka liittyvät käyttäjien henkilökohtaisiin tietoihin, päiväkirjamerkintöihin, mielialaan ja HRV-dataan. Tämä dokumentaatio sisältää yksityiskohtaiset tiedot kutakin reittiä ja niiden toimintaa varten, kuten HTTP-metodit, endpointit ja parametrit. API:n kaikki kutsut vaativat autentikoinnin JWT-tokenin avulla, ellei toisin mainita.
+
+#### Autentikointi
+- **POST /api/auth/login**
+  - **Kuvaus**: Kirjaudu sisään ja vastaanota autentikaatiotoken.
+  - **URL**: `/api/auth/login`
+  - **Metodi**: POST
+  - **Auth vaadittu**: Ei
+  - **Data constraints**:
+    ```json
+    {
+      "username": "[valid username]",
+      "password": "[password in plain text]"
+    }
+    ```
+  - **Data esimerkki**:
+    ```json
+    {
+      "username": "johndoe",
+      "password": "s3cr3t"
+    }
+    ```
+  - **Onnistunut vastaus**:
+    - **Koodi**: 200 OK
+    - **Sisältö**:
+      ```json
+      {
+        "message": "Logged in successfully",
+        "token": "TOKEN-VALUE",
+        "user": {
+          "user_id": 21,
+          "username": "johndoe",
+          "email": "johnd@example.com",
+          "user_level": "regular"
+        }
+      }
+      ```
+  - **Virhevastaus**:
+    - **Koodi**: 401 Unauthorized
+    - **Sisältö**:
+      ```json
+      {
+        "error": "Invalid username or password"
+      }
+      ```
+  - **Esimerkki kutsu**:
+    ```bash
+    curl -X POST https://api.yoursite.com/auth/login \
+         -H "Content-Type: application/json" \
+         -d '{"username":"johndoe", "password":"s3cr3t"}'
+    ```
+  - **Huomautukset**:
+    - Salasanat lähetetään tekstinä, varmista suojattu yhteys.
+    - Tokenit tulee säilyttää turvallisesti eikä niitä saa paljastaa asiakaspuolen koodissa.
+
+#### Käyttäjät
+- **POST /api/users** ja **GET /api/users/{userId}**
+  - **Kuvaus**: Luo uusi käyttäjä tai hae käyttäjän tiedot.
+  - **Parametrit**: Käyttäjänimi, salasana, sähköposti (POST); user-ID (GET).
+
+#### Päiväkirjamerkinnät
+- **GET /api/entries/{userId}** ja **POST /api/entries**
+  - **Kuvaus**: Listaa kaikki käyttäjän merkinnät tai luo uusi merkintä.
+  - **Parametrit**: user-ID, päivämäärä, mieliala, huomiot, unen määrä, paino, liikunnan kesto.
+
+#### Mieliala ja HRV
+- **GET /api/kubios/user-data** ja **GET /api/kubios/user-info**
+  - **Kuvaus**: Palauttaa käyttäjän HRV-dataa tai perustiedot.
+
+#### Virheenkäsittely
+- Standardoitu virheenkäsittely kaikissa endpointeissa.
+
+### API:n Dokumentointityökalut
+- Suositellaan käyttämään Postmania API:n dokumentoinnissa ja testauksessa.
+
+
